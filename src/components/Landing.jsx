@@ -1,6 +1,7 @@
 import React from "react";
 import img3 from "../assets/img3.jpeg";
 import Top from "./Top";
+import Lfooter from "./Lfooter";
 function Landing() {
   return (
     <>
@@ -33,7 +34,7 @@ function Landing() {
         </div>
         <div className="relative">
   <button 
-    className="ml-20 mt-10 bg-[#235F97] text-white px-6 py-3 rounded-full hover:bg-blue-500 w-44 h-14"
+    className="ml-20  bg-[#235F97] text-white px-6 py-3 rounded-full hover:bg-blue-500 w-44 h-14"
     style={{
       fontFamily: "junge",
       lineHeight: '28.31px'
@@ -43,9 +44,11 @@ function Landing() {
   >
     Get Started
   </button>
+  
 </div>
-
+<Lfooter/>
       </div>
+    
     </>
   );
 }
