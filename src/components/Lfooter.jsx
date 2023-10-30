@@ -7,7 +7,7 @@ import google from "../assets/google.png";
 function Lfooter() {
   return (
     <>
-      <div className="text-2xl  pt-10 pb-10 bg-[#bad9d8] flex justify-around"
+      <div className="text-2xl  pt-10 pb-6 bg-[#bad9d8] flex justify-around"
       style={{
         fontFamily: "junge",
       }} >
