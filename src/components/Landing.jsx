@@ -26,7 +26,7 @@ function Landing() {
             <img
               src={img3}
               alt=""
-              className="w-[48.65vw] h-[68.52vh] object-cover"
+              className="w-[43.65vw] h-[60.52vh] object-cover"
             />
           </div>
 
