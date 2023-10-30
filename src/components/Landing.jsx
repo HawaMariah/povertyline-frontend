@@ -8,7 +8,7 @@ function Landing() {
       <div className="bg-[#bad9d8] h-screen">
         <Top />
 
-        <div className="  flex justify-center items-center">
+        <div className="  flex justify-around items-center">
           <div className="">
             <p
               className=" w-[34.8vw] h-[39vh] ml-20 text-6xl font-bold leading-[113px] tracking-normal "
