@@ -28,8 +28,8 @@ function Postjob() {
         <div className="  flex justify-center w-full">
           <div className="bg-white w-[1728px]  relative">
          
-            <div className="w-[87vw] h-[64vh] top-[241px] left-[38px] bg-[#bad6d6] absolute rounded-[20px]">
-              <p className="absolute w-[703px] font-bold top-[67px] left-[75px]  text-[64px] leading-[1.3] tracking-[2px]"
+            <div className="w-[80vw] h-[64vh] top-[241px] left-[90px] bg-[#bad6d6] absolute rounded-[20px]">
+              <p className="absolute w-[600px] font-bold top-[67px] left-[75px]  text-[64px] leading-[1.] tracking-[2px]"
                style={{
                 fontFamily: "junge",
               }}
@@ -48,7 +48,7 @@ function Postjob() {
                   get your work done
                 </span>
               </p>
-              <div className="w-[35.5vw] h-[60vh] top-[15px] left-[966px] bg-white absolute rounded-[20px]">
+              <div className="w-[35.5vw] h-[60vh] top-[15px] left-[829px] bg-white absolute rounded-[20px]">
                 <div className="max-w-lg mx-auto ">
                   <div className="flex justify-center">
                     <p className="text-3xl font-bold mt-4 mb-4">Posts A Job</p>
