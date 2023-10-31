@@ -29,7 +29,7 @@ function Postjob() {
           <div className="bg-white w-[1728px]  relative">
          
             <div className="w-[87vw] h-[64vh] top-[241px] left-[38px] bg-[#bad6d6] absolute rounded-[20px]">
-              <p className="absolute w-[703px] top-[67px] left-[75px]  text-[64px] leading-[1.2] tracking-[2px]"
+              <p className="absolute w-[703px] font-bold top-[67px] left-[75px]  text-[64px] leading-[1.3] tracking-[2px]"
                style={{
                 fontFamily: "junge",
               }}
