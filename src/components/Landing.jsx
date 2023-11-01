@@ -11,7 +11,7 @@ function Landing() {
         <div className="  flex justify-around items-center">
           <div className="">
             <p
-              className=" w-[34.8vw] h-[39vh] ml-20 text-6xl font-bold leading-[113px] tracking-normal "
+              className="mt-10 w-[34.8vw] h-[39vh] ml-20 text-6xl font-bold leading-[113px] tracking-normal "
               style={{
                 fontFamily: "junge",
               }}
@@ -22,7 +22,7 @@ function Landing() {
             </p>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-36">
             <img
               src={img3}
               alt=""

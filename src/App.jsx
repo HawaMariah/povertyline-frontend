@@ -8,9 +8,9 @@ function App() {
   return (
     <>
     <div>
-     {/* <Landing/> */}
+     <Landing/>
      {/* <Postjob/> */}
-     <Contactus/>
+     {/* <Contactus/> */}
     </div>
      
     </>
