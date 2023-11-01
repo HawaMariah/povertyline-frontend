@@ -1,29 +1,48 @@
-import React from 'react';
-import JobListings from './components/JobListings'; // Import the JobListings component
+import React, { useState } from "react";
+import "./App.css";
+// import "./index.css";
+//toaster
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//context
+// import { dataContext } from "./data/DataContextProvider";
+//Routes
+import { Route, Routes } from "react-router-dom";
+//components
+// import NavBar from "./Components/NavBar";
+// import "./Components/Navbar.css";
+// import Help from "./Components/help/Help";
 
-const jobData = [
-  {
-    id: 1,
-    title: 'Frontend Developer',
-    company: 'Tech Company Inc.',
-    location: 'New York, NY',
-    description: 'We are looking for a skilled frontend developer to join our team...',
-  },
-  {
-    id: 2,
-    title: 'UX Designer',
-    company: 'Design Studio Co.',
-    location: 'San Francisco, CA',
-    description: 'We are seeking a creative and experienced UX designer to work on exciting projects...',
-  },
-  // Add more job listings as needed
-];
+// import RoutingComponent from "./components/RoutingComponent";
+import Lfooter from "./Components/Lfooter";
+
+import Home from 
+'./Components/Home'
+
+function PostFormObjectToApplicantServer(applicatant) {
+  console.log(applicatant);
+}
 
 function App() {
+
   return (
     <div className="App">
-      <h1>Job Listings</h1>
-      <JobListings jobs={jobData} /> {/* Pass the job data as a prop */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      {/* <NavBar /> */}
+      <Home
+            // PostFormObjectToApplicantServer={PostFormObjectToApplicantServer}
+          />
+      <Lfooter />
     </div>
   );
 }
