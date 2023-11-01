@@ -48,7 +48,7 @@ function Postjob() {
                   get your work done
                 </span>
               </p>
-              <div className="w-[35.5vw] h-[60vh] top-[15px] left-[829px] bg-white absolute rounded-[20px]">
+              <div className="w-[35.5vw] h-[60vh] top-[15px] left-[829px] bg-white absolute rounded-[20px] ">
                 <div className="max-w-lg mx-auto ">
                   <div className="flex justify-center">
                     <p className="text-3xl font-bold mt-4 mb-4">Posts A Job</p>

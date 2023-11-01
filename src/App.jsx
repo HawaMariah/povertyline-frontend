@@ -1,6 +1,7 @@
 import Landing from './components/Landing'
 import './App.css'
 import Postjob from './components/Postjob'
+import Contactus from './components/Contactus'
 function App() {
   
 
@@ -8,7 +9,8 @@ function App() {
     <>
     <div>
      {/* <Landing/> */}
-     <Postjob/>
+     {/* <Postjob/> */}
+     <Contactus/>
     </div>
      
     </>
