@@ -1,5 +1,5 @@
 import MapComponent from "./MapComponent";
-//
+import img from "../assets/cont.jpg";
 import React from "react";
 
 export default function Contactus() {
@@ -7,11 +7,15 @@ export default function Contactus() {
     <>
       <div className=" flex flex-row justify-center w-full">
         <div className=" w-[100vw] ">
-          <div className="absolute w-[100vw] h-[300px] [background:linear-gradient(180deg,rgb(181,214,214)_1.25%,rgba(222.62,213.22,213.22,0.5)_35.73%,rgba(215.69,196.81,196.81,0)_100%)]" />
-          <div className="absolute top-[104px] left-[115px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[96px] tracking-[0] leading-[normal]">
-            Let’s talk
+     
+          <div className="relative">
+            <img src={img} alt="" className="w-full h-[300px] " />
+            <div className="absolute inset-0 flex items-center  text-white bg-black bg-opacity-50">
+              <p className="text-6xl font-bold ml-[150px]">Let's Talk</p>
+            </div>
           </div>
-          <div className="absolute top-[300px] left-[970px] h-[600px] border-l-[2px] border-gray-300"></div>
+
+          <div className="absolute top-[400px] left-[970px] h-[500px] border-l-[2px] border-gray-300"></div>
           <div className="">
             <div className="absolute top-[350px] left-[110px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#235f97] text-[36px] tracking-[0] leading-[normal]">
               Contact us

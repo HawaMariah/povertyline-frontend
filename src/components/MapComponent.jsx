@@ -19,7 +19,7 @@ const MapComponent = () => {
     };
   }, []);
 
-  return <div id="map" className="top-[400px] left-[1050px] w-[40vw] h-[50vh] border-2 border-blue-200 rounded-xl shadow-lg bg-gray-100
+  return <div id="map" className="top-[100px] left-[1050px] w-[40vw] h-[50vh] border-2 border-blue-200 rounded-xl shadow-lg bg-gray-100
   "/>;
 };
 
