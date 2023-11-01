@@ -1,23 +1,27 @@
 import MapComponent from "./MapComponent";
 import img from "../assets/cont.jpg";
 import React from "react";
-
+//bg-[#bad9d8]
 export default function Contactus() {
   return (
     <>
-      <div className=" flex flex-row justify-center w-full">
+    
+      <div className=" flex flex-row justify-center w-full ">
         <div className=" w-[100vw] ">
      
           <div className="relative">
             <img src={img} alt="" className="w-full h-[300px] " />
-            <div className="absolute inset-0 flex items-center  text-white bg-black bg-opacity-50">
-              <p className="text-6xl font-bold ml-[150px]">Let's Talk</p>
+            <div className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50">
+              <p className="text-8xl  "
+                style={{
+                    fontFamily: "junge",
+                  }}>Let's Talk</p>
             </div>
           </div>
 
           <div className="absolute top-[400px] left-[970px] h-[500px] border-l-[2px] border-gray-300"></div>
           <div className="">
-            <div className="absolute top-[350px] left-[110px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#235f97] text-[36px] tracking-[0] leading-[normal]">
+            <div className="absolute top-[350px] left-[100px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#235f97] text-[36px] tracking-[0] leading-[normal]">
               Contact us
             </div>
             <p className="absolute w-[587px] top-[434px] left-[115px] [font-family:'Inter-Medium',Helvetica] font-medium text-black text-[20px] tracking-[0] leading-[normal]">
