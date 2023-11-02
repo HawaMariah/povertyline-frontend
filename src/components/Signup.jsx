@@ -233,7 +233,12 @@ and life becomes easier with us</p></div>
                 SIGN UP
               </button>
             </form>
+            <br />
+            <div className="ml-5">
+            this isn't my first rodeo <a href="#" className="text-[#235F97]">SIGN IN</a>
+            </div>
           </div>
+          
         </div>
       </div>
     </>
