@@ -5,7 +5,7 @@ function Footer() {
   return (
   <div className="main-footer">
     <div className="container">
-        <div className="row">
+        <div className="row flex px-9 py-2 justify-center">
             {/* Column1 */}
             <div className="col">
                 <h4>Location</h4>

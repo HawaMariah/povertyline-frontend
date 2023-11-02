@@ -6,17 +6,14 @@
   color: #fff;
   padding: 20px;
   width: 100%;
-  position: absolute;
-  position: sticky;
-
   
 }
 
 .container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   padding-top: 2em;
-  position: relative; 
+  /* position: relative;  */
   border-top: 0; 
   width: 100%; 
   text-decoration: none;  
@@ -30,7 +27,7 @@
 }
 .main-container{
   flex: 1; /* Occupy remaining available space */
-  position: absolute;
+  /* position: absolute; */
 
 }
 
