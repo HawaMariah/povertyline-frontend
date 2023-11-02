@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Apply from "./Apply";
-import CareerDetails from "./CareerDetails";
+import CareerDetails from "./JobDetails";
 
 function RenderJobOnLoad() {
   const [isShowMore, setIsShowMore] = useState(false);

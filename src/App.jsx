@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-// import "./index.css";
 //toaster
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,7 +13,7 @@ import { Route, Routes } from "react-router-dom";
 // import Help from "./Components/help/Help";
 
 // import RoutingComponent from "./components/RoutingComponent";
-import Lfooter from "./Components/Lfooter";
+import Footer from "./Components/Footer";
 
 import Home from 
 './Components/Home'
@@ -42,7 +41,7 @@ function App() {
       <Home
             // PostFormObjectToApplicantServer={PostFormObjectToApplicantServer}
           />
-      <Lfooter />
+      <Footer />
     </div>
   );
 }

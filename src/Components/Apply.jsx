@@ -126,7 +126,7 @@ function Apply() {
                 </button>
                 <button
                   type="submit"
-                  className="mb-2 md:mb-0 bg-blue-500 border  border-blue-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-blue-600"
+                  className="mb-2 md:mb-0 bg-[#6d9b99] border  border-bg-[#6d9b99] px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-blue-600"
                 >
                   Submit
                 </button>

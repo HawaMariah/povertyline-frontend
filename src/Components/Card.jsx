@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card({ career, onButtonClick }) {
+function Card({ job, onButtonClick }) {
   function detailsHandle(id) {
     // console.log(id);
     onButtonClick(id);
@@ -16,39 +16,39 @@ function Card({ career, onButtonClick }) {
           >
             <div
               className="flex flex-wrap items-center justify-between -m-2"
-              onClick={() => detailsHandle(career.id)}
+              onClick={() => detailsHandle(job.id)}
             >
               <div className="w-auto p-2">
                 <h3 className="mb-1 font-semibold tracking-tight">
-                  {career.title}
+                  {job.title}
                 </h3>
-                <p className="text-lg">{career.company}</p>
-                <p className="text-lg mb-2">{career.location}</p>
+                <p className="text-lg">{job.company}</p>
+                <p className="text-lg mb-2">{job.location}</p>
 
                 <div className="mt-3">
                   <span className="bg-gray-300 mr-3 px-2.5 py-1.5 rounded-lg">
-                    {career.type}
+                    {job.type}
                   </span>
                   <span className="bg-green-100 mr-3 px-2.5 py-1.5 rounded-lg">
                     {" "}
                     <i className="fa fa-money-bills"></i> $
-                    {career.salary.toLocaleString()} per year
+                    {job.salary.toLocaleString()} per year
                   </span>
                   <button
                     type="button"
                     className="text-gray-900 border border-gray-300 px-2 py-1 rounded-lg"
                   >
-                    {career.experience}+ years
+                    {job.experience}+ years
                   </button>
                 </div>
-                <p className="pt-4">{career.description}</p>
+                <p className="pt-4">{job.description}</p>
               </div>
 
               <div className="w-auto p-2">
                 <div className="flex flex-row justify-center">
                   <Link
                     to="/"
-                    onClick={() => detailsHandle(career.id)}
+                    onClick={() => detailsHandle(job.id)}
                     className="inline-block mx-auto px-4 py-2 text-white font-semibold tracking-tight bg-[#6d9b99] hover:bg-indigo-600 rounded-lg focus:ring-4 focus:ring-indigo-300 transition duration-200"
                   >
                     Job Details

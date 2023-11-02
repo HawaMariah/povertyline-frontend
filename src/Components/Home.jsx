@@ -1,31 +1,30 @@
 import React from "react";
-import { useContext, useState, useEffect, useRef } from "react";
-import { dataContext } from "../data/DataContextProvider";
+import { useEffect, useRef } from "react";
 import {useSelector, useDispatch} from 'react-redux'
 
 import Card from "./Card";
-import CareerDetails from "./CareerDetails";
+import JobDetails from "./JobDetails";
 import Filter from "./Filter";
 import "./home.css";
 import NoResultsCard from "./NoResultsCard";
 import Newsletter from "./Newsletter";
-import { setCareerData, setIsLoading, setFilteredData, setCareerId ,setSearchTerm,setSelectedLocation} from "../features/career/careerSlice";
+import { setJobData, setIsLoading, setFilteredData, setJobId ,setSearchTerm,setSelectedLocation} from "../features/job/jobSlice";
 
 function Home({ PostFormObjectToApplicantServer }) {
   const dispatch =useDispatch()
 
 
-  const careerData = useSelector(state => state.careers.careerData)
-  const isLoading = useSelector(state => state.careers.isLoading)
-  const filteredData = useSelector(state => state.careers.filteredData)
-  const careerId = useSelector(state => state.careers.careerId)
-  const  searchTerm = useSelector(state => state.careers.searchTerm)
-  const  selectedLocation = useSelector(state => state.careers.setSelectedLocation)
+  const jobData = useSelector(state => state.jobs.jobData)
+  const isLoading = useSelector(state => state.jobs.isLoading)
+  const filteredData = useSelector(state => state.jobs.filteredData)
+  const jobId = useSelector(state => state.jobs.jobId)
+  const  searchTerm = useSelector(state => state.jobs.searchTerm)
+  const  selectedLocation = useSelector(state => state.jobs.setSelectedLocation)
 
 
-  // const [ careerData, setCareerData ] = useState([]);
+  // const [ jobData, setJobData ] = useState([]);
   // const [isLoading, setIsLoading] = useState(false)
-  // const [careerId, setCareerId] = useState();
+  // const [jobId, setJobId] = useState();
   const leftSectionRef = useRef(null);
   const rightSectionRef = useRef(null);
 
@@ -48,20 +47,23 @@ function Home({ PostFormObjectToApplicantServer }) {
     dispatch(setSelectedLocation(filterLocation));
   }
 
-  // Update the filteredData when careerData, searchTerm, or selectedLocation changes
+  // Update the filteredData when jobData, searchTerm, or selectedLocation changes
 
   useEffect(() => {
-    fetch(`https://skill-hunter-server.onrender.com/careers`)
+    if (jobData.length === 0) {
+    fetch(`https://poverty-line-backend3.onrender.com/jobs`)
     .then((res) => res.json())
-    .then((data) => dispatch(setCareerData(data)))
+    .then((data) => dispatch(setJobData(data)))
     .finally(dispatch(setIsLoading(false)));
+    }
+
 
     const leftSection = leftSectionRef.current;
     const rightSection = rightSectionRef.current;
 
-    // Filter the careerData based on the search term
-    const searchedData = careerData.filter((career) =>
-      career.title.toLowerCase().includes(searchTerm.toLowerCase())
+    // Filter the jobData based on the search term
+    const searchedData = jobData.filter((job) =>
+      job.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     //set filteredData to searchedData: no location is selected in this case
@@ -70,8 +72,8 @@ function Home({ PostFormObjectToApplicantServer }) {
     // If a location is selected, further filter based on location
     if (selectedLocation) {
       filteredData = searchedData.filter(
-        (career) =>
-          career.location.toLowerCase() === selectedLocation.toLocaleLowerCase()
+        (job) =>
+          job.location.toLowerCase() === selectedLocation.toLocaleLowerCase()
       );
     }
 
@@ -87,24 +89,24 @@ function Home({ PostFormObjectToApplicantServer }) {
         leftSection.removeEventListener("scroll", handleLeftScroll);
       }
     };
-  }, [careerData, searchTerm, selectedLocation]);
+  }, [jobData, dispatch, searchTerm, selectedLocation]);
 
-  function getCareerIdFromCard(id) {
+  function getJobIdFromCard(id) {
     // console.log(id);
-    dispatch(setCareerId(id));
+    dispatch(setJobId(id));
   }
 
   // Function to handle the filter change and update filteredData
-  function handleFilterChange(filteredCareers) {
-    dispatch(setFilteredData(filteredCareers));
+  function handleFilterChange(filteredjobs) {
+    dispatch(setFilteredData(filteredjobs));
   }
 
-  // Create JSX for displaying career cards based on the filteredData
-  const displayCareerdata = filteredData.map((career) => {
+  // Create JSX for displaying job cards based on the filteredData
+  const displayJobdata = filteredData.map((job) => {
     return (
-      <span id="car-span" key={career.id}>
+      <span id="car-span" key={job.id}>
         {" "}
-        <Card onButtonClick={getCareerIdFromCard} career={career} />
+        <Card onButtonClick={getJobIdFromCard} job={job} />
       </span>
     );
   });
@@ -140,11 +142,11 @@ function Home({ PostFormObjectToApplicantServer }) {
                   />
                 </div>
 
-                {/* Render the filtered careers */}
-                {displayCareerdata.length === 0 ? (
+                {/* Render the filtered jobs */}
+                {displayJobdata.length === 0 ? (
                   <NoResultsCard />
                 ) : (
-                  displayCareerdata
+                  displayJobdata
                 )}
               </div>
             </section>
@@ -155,9 +157,9 @@ function Home({ PostFormObjectToApplicantServer }) {
             style={{ overflowY: "auto" }}
             className="max-w-1xl px-4 py-4 mx-auto "
           >
-            <CareerDetails
-              careerData={careerData}
-              careerId={careerId}
+            <JobDetails
+              jobData={jobData}
+              jobId={jobId}
               // PostFormObjectToApplicantServer={PostFormObjectToApplicantServer}
             />
           </div>

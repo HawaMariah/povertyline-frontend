@@ -62,7 +62,7 @@ function Footer() {
         <hr />
         <div className="row1">
             <p className="col-sm">
-                &copy;{new Date().getFullYear()} Skill Hunter LTD | All rights reserved | Terms Of Services | Privacy
+                &copy;{new Date().getFullYear()} Gighunting LTD | All rights reserved | Terms Of Services | Privacy
 
             </p>
             </div>

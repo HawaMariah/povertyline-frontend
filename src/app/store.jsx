@@ -1,10 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit"
-import careerReducer from "../features/career/careerSlice"
+import jobReducer from "../features/job/jobSlice"
 
 
 export const store = configureStore({
     reducer: {
-        careers: careerReducer,
+        jobs: jobReducer,
     },
 });
  

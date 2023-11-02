@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-import { dataContext } from "../data/DataContextProvider";
+import { useEffect} from "react";
 import "./filter.css";
+import {useSelector, useDispatch} from 'react-redux'
+
 
 function Filter({ onFilter, onLocationFilter }) {
-  const [ careerData, setCareerData ] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const  jobData = useSelector(state => state.jobs.jobData)
+  const  isLoading = useSelector(state => state.jobs.isLoading)
+
+  // const [ jobData, setCareerData ] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(()=> {
-    fetch(`https://skill-hunter-server.onrender.com/careers`)
-    .then((res) => res.json())
-    .then((data) => setCareerData(data))
-    .finally(setIsLoading(false));
+   
   })
 
   function handleFilter(e) {
@@ -23,28 +24,19 @@ function Filter({ onFilter, onLocationFilter }) {
   function filterData(filterLocation) {
     if (!filterLocation) {
       // If no location is selected, return all cards
-      return careerData;
+      return jobData;
     } else {
       // Filter careers based on the selected location
-      return careerData.filter(
+      return jobData.filter(
         (career) => career.location.toLowerCase() === filterLocation.toLowerCase()
       );
     }
   }
 
   //making the location for filtering dynamic
-  const locations = [
-    "Nairobi",
-    "Mombasa",
-    "Kisumu",
-    "Nakuru",
-    "Eldoret",
-    "Machakos",
-    "Kisii",
-    "Nyeri",
-    "Embu",
-    "Kakamega",
-  ];
+  const locations = jobData.map((job) => {
+    return job.location
+  })
 
   return (
     <div className="filter">
