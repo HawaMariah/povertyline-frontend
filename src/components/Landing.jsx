@@ -32,7 +32,7 @@ function Landing() {
   </button>
           </div>
 
-          <div className="mt-40">
+          <div className="mt-40 mr-20">
             <img
               src={img3}
               alt=""
