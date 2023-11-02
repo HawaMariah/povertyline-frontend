@@ -2,13 +2,15 @@ import Landing from './components/Landing'
 import './App.css'
 import Postjob from './components/Postjob'
 import Contactus from './components/Contactus'
+import SignUp from './components/Signup'
 function App() {
   
 
   return (
     <>
     <div>
-     <Landing/>
+      <SignUp/>
+     {/* <Landing/> */}
      {/* <Postjob/> */}
      {/* <Contactus/> */}
     </div>

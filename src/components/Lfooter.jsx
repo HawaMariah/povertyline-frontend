@@ -31,7 +31,9 @@ function Lfooter() {
 
         <div>
           <p className="text-gray-900  pb-2">Airbnb</p>
-          <img src={bnb} alt="" className="w-[4.11vw] h-[6.vh] " />
+          <div className="">
+          <img src={bnb} alt="" className="w-[4.11vw] h-[6.vh]   " />
+          </div>
         </div>
 
         <div>
