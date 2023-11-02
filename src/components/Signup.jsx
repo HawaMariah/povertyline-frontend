@@ -108,6 +108,8 @@
 
 // export default SignUp
 //bg-[#bad9d8]
+
+
 import "./signup.css";
 import React from "react";
 import * as yup from "yup";

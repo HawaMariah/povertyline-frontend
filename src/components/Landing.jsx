@@ -20,9 +20,19 @@ function Landing() {
               <span className="text-blue-500">talent</span>, Get{" "}
               <span className="text-blue-500">hired</span> & Earn from community
             </p>
+            <button 
+    className="ml-20 bg-[#235F97] text-white  rounded-full hover:bg-blue-500 w-44 h-14  "
+    style={{
+      fontFamily: "junge",
+      
+    }}
+    
+  >
+    Get Started
+  </button>
           </div>
 
-          <div className="mt-36">
+          <div className="mt-40">
             <img
               src={img3}
               alt=""
@@ -32,20 +42,11 @@ function Landing() {
 
     
         </div>
-        <div className="relative">
-  <button 
-    className="ml-20  bg-[#235F97] text-white  rounded-full hover:bg-blue-500 w-44 h-14  "
-    style={{
-      fontFamily: "junge",
-      
-    }}
-    
-  >
-    Get Started
-  </button>
-  
+        <div className="">
+
+  <Lfooter/>
 </div>
-<Lfooter/>
+
       </div>
     
     </>
