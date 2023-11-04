@@ -7,12 +7,12 @@ function NavBar() {
       <header>
         <nav>
           <h1>
-            SKILL <span>HUNTER</span>
+            GIG <span>HUNTING</span>
           </h1>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="about">About</NavLink>
-          <NavLink to="admin">Admin</NavLink>
-          <NavLink to="help">Help</NavLink>
+          <NavLink to="abou
+          t">About</NavLink>
+          <NavLink to="contact us">Contact us</NavLink>
         </nav>
       </header>
       <main>

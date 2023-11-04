@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-//toaster
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//context
-// import { dataContext } from "./data/DataContextProvider";
-//Routes
 import { Route, Routes } from "react-router-dom";
 //components
-// import NavBar from "./Components/NavBar";
-// import "./Components/Navbar.css";
+import NavBar from "./Components/NavBar";
+import "./Components/Navbar.css";
 // import Help from "./Components/help/Help";
 
 // import RoutingComponent from "./components/RoutingComponent";
@@ -37,7 +33,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      {/* <NavBar /> */}
+      <NavBar />
       <Home
             // PostFormObjectToApplicantServer={PostFormObjectToApplicantServer}
           />

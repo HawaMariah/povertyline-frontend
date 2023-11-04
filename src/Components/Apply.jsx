@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { dataContext } from "../data/DataContextProvider";
+import { useState} from "react";
 import { toast } from "react-toastify";
 
 function Apply() {

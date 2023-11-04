@@ -51,7 +51,7 @@ function Home({ PostFormObjectToApplicantServer }) {
 
   useEffect(() => {
     if (jobData.length === 0) {
-    fetch(`https://poverty-line-backend3.onrender.com/jobs`)
+    fetch(`https://skill-hunter-server.onrender.com/careers`)
     .then((res) => res.json())
     .then((data) => dispatch(setJobData(data)))
     .finally(dispatch(setIsLoading(false)));

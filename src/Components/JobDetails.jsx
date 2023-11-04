@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
-import { dataContext } from "../data/DataContextProvider";
 import Card from "./Card";
 import Jobs from "./Jobs";
 import RenderJobOnLoad from "./RenderJobOnLoad";
