@@ -14,8 +14,8 @@ function App() {
           <Route exact path="/" element={<Landing />} />
             <Route exact path="/signup" element={<SignUp />} />
           </Routes>
-          {/* <Postjob/> */}
-          {/* <Contactus/> */}
+          {/* <Postjob/>
+          <Contactus/> */}
         </Router>
       </div>
     </>
