@@ -10,30 +10,6 @@
     margin-top: 0.25rem;
 }
 
-.checkbox {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-nav h3 {
-    margin: 1rem;
-    cursor: pointer;
-    color: #718096;
-}
-
-nav h3:hover {
-    color: white;
-}
-
 form {
     width: 95%;
     max-width: 400px;
