@@ -4,19 +4,27 @@ import "./App.css";
 import Postjob from "./components/Postjob";
 import Contactus from "./components/Contactus";
 import SignUp from "./components/Signup";
+
+
+import Community from "./components/Community";
 function App() {
   return (
     <>
       <div>
-        <Router>
+        {/* <Router>
        
           <Routes>
           <Route exact path="/" element={<Landing />} />
             <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/community" element={<Community />} />
           </Routes>
-          {/* <Postjob/>
-          <Contactus/> */}
-        </Router>
+         
+        </Router> */}
+        {/* <Postjob/> */}
+        <Contactus/>
+       
+
+       
       </div>
     </>
   );

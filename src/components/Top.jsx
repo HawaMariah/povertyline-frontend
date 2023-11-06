@@ -122,32 +122,32 @@ function Top() {
           <div className=" hidden  lg:block space-x-2">
             <Link
               to="/"
-              className="hover:bg-gray-500 rounded-full px-5 py-2 text-xl"
+              className="hover:text-white  px-5 py-2 text-xl"
             >
               Find job
             </Link>
             <Link
               to="/donate"
-              className="hover:bg-gray-500 rounded-full px-5 py-2 text-xl"
+              className="hover:text-white  px-5 py-2 text-xl"
             >
               Messages
             </Link>
             <Link
-              to="/events"
-              className="hover:bg-gray-500 rounded-full px-5 py-2 text-xl"
+              to="/community"
+              className="hover:text-white  px-5 py-2 text-xl"
             >
               Community
             </Link>
 
             <Link
               to="/faqs"
-              className="hover:bg-gray-500 rounded-full px-5 py-2 text-xl"
+              className="hover:text-white  px-5 py-2 text-xl"
             >
               FAQs
             </Link>
             <Link
               to="/signup"
-              className="hover:bg-gray-500 rounded-full px-5 py-2 text-xl"
+              className="hover:text-white  px-5 py-2 text-xl"
             >
               SignUp
             </Link>
@@ -176,7 +176,7 @@ function Top() {
                 <Link to="/donate">Messages</Link>
               </li>
               <li className="text-xl mb-2 cursor-pointer">
-                <Link to="/events">Community</Link>
+                <Link to="/community">Community</Link>
               </li>
 
               <li className="text-xl mb-2 cursor-pointer">
