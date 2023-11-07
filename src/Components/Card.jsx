@@ -10,9 +10,10 @@ function Card({ job, onButtonClick }) {
     <div className="max-w-3xl mx-auto" id="card-dv">
       <div className="flex flex-wrap ">
         <div className="w-full p-1">
-          <a
+          <Link
+            onClick={() => detailsHandle(job.id)}
             className="block p-6 bg-white hover:bg-opacity-50 transform hover:-translate-y-1 rounded-lg transition duration-500"
-            href="#"
+            to="#"
           >
             <div
               className="flex flex-wrap items-center justify-between -m-2"
@@ -46,17 +47,15 @@ function Card({ job, onButtonClick }) {
 
               <div className="w-auto p-2">
                 <div className="flex flex-row justify-center">
-                  <Link
-                    to="/"
-                    onClick={() => detailsHandle(job.id)}
+                  <div
                     className="inline-block mx-auto px-4 py-2 text-white font-semibold tracking-tight bg-[#6d9b99] hover:bg-indigo-600 rounded-lg focus:ring-4 focus:ring-indigo-300 transition duration-200"
                   >
                     Job Details
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

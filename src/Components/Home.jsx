@@ -22,6 +22,8 @@ import {
   setSearchTerm,
   setSelectedLocation,
 } from "../features/job/jobSlice";
+// import Newsletter from "./Newsletter";
+import { setJobData, setIsLoading, setFilteredData, setJobId ,setSearchTerm,setSelectedLocation} from "../features/job/jobSlice";
 
 function Home({ PostFormObjectToApplicantServer }) {
   const dispatch = useDispatch();

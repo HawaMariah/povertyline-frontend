@@ -8,6 +8,7 @@ const initialState = {
   filteredData: [],
   searchTerm: "",
   jobId: null,
+  loggedInUser: null
 };
 
 const jobSlice = createSlice({
@@ -32,6 +33,9 @@ const jobSlice = createSlice({
     setJobId: (state, action) => {
       state.jobId = action.payload;
     },
+    setLoggedInUser: (state, action) => {
+      state.loggedInUser = action.payload
+    }
   },
 });
 
@@ -41,7 +45,9 @@ export const {
   setFilteredData,
   setSearchTerm,
   setJobId,
-  setIsLoading
+  setIsLoading,
+  setAccessToken,
+  setLoggedInUser,
 } = jobSlice.actions;
 
 export const selectJobData = (state) => state.jobs.jobData;
