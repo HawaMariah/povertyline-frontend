@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 :root {
@@ -388,13 +389,7 @@ legend {
 #car-span {
   margin-bottom: 30px;
 }
-/* career details*/
-#career-details {
-}
-/*  career detial requrements*/
-#requirements {
-}
-/*home main div*/
+
 #home-main-div {
   display: flex;
   flex-direction: row;

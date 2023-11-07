@@ -1,26 +1,39 @@
 import React from "react";
+// import { ToastContainer, toast } from "react-toastify"
+// import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useRef } from "react";
-import {useSelector, useDispatch} from 'react-redux'
-
+import { useSelector, useDispatch } from "react-redux";
+import NavBar from "./NavBar";
 import Card from "./Card";
 import JobDetails from "./JobDetails";
 import Filter from "./Filter";
 import "./home.css";
+import "./Navbar.css";
+import "./h.css";
+import Top from "./Top";
 import NoResultsCard from "./NoResultsCard";
-import Newsletter from "./Newsletter";
-import { setJobData, setIsLoading, setFilteredData, setJobId ,setSearchTerm,setSelectedLocation} from "../features/job/jobSlice";
+import { ToastContainer } from "react-toastify";
+// import Newsletter from "./Newsletter";
+import {
+  setJobData,
+  setIsLoading,
+  setFilteredData,
+  setJobId,
+  setSearchTerm,
+  setSelectedLocation,
+} from "../features/job/jobSlice";
 
 function Home({ PostFormObjectToApplicantServer }) {
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
 
-
-  const jobData = useSelector(state => state.jobs.jobData)
-  const isLoading = useSelector(state => state.jobs.isLoading)
-  const filteredData = useSelector(state => state.jobs.filteredData)
-  const jobId = useSelector(state => state.jobs.jobId)
-  const  searchTerm = useSelector(state => state.jobs.searchTerm)
-  const  selectedLocation = useSelector(state => state.jobs.setSelectedLocation)
-
+  const jobData = useSelector((state) => state.jobs.jobData);
+  const isLoading = useSelector((state) => state.jobs.isLoading);
+  const filteredData = useSelector((state) => state.jobs.filteredData);
+  const jobId = useSelector((state) => state.jobs.jobId);
+  const searchTerm = useSelector((state) => state.jobs.searchTerm);
+  const selectedLocation = useSelector(
+    (state) => state.jobs.setSelectedLocation
+  );
 
   // const [ jobData, setJobData ] = useState([]);
   // const [isLoading, setIsLoading] = useState(false)
@@ -51,12 +64,11 @@ function Home({ PostFormObjectToApplicantServer }) {
 
   useEffect(() => {
     if (jobData.length === 0) {
-    fetch(`https://skill-hunter-server.onrender.com/careers`)
-    .then((res) => res.json())
-    .then((data) => dispatch(setJobData(data)))
-    .finally(dispatch(setIsLoading(false)));
+      fetch(`https://skill-hunter-server.onrender.com/careers`)
+        .then((res) => res.json())
+        .then((data) => dispatch(setJobData(data)))
+        .finally(dispatch(setIsLoading(false)));
     }
-
 
     const leftSection = leftSectionRef.current;
     const rightSection = rightSectionRef.current;
@@ -121,13 +133,28 @@ function Home({ PostFormObjectToApplicantServer }) {
   return (
     <>
       <div>
+        <Top/>
+        <div className="pt-5">
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+        </div>
+
         <div className="grid grid-cols-2 justify-center" id="home-main-div">
           <div>
             <section className="py-px lg:pb-18 mb-1 bg-gray-100 overflow-hidden">
               {/* adjustable viewheight */}
               <div id="home-card-div" ref={leftSectionRef}>
                 {/* Search bar and filter dropdown */}
-                <div className="search-bar relative flex max-w-3xl mb-5 mt-5 shadow-lg mx-auto">
+                <div className="search-bar  relative flex max-w-3xl mb-5 mt-5 shadow-lg mx-auto">
                   <input
                     type="text"
                     id="default-search"

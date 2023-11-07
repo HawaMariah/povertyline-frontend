@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import "./About.css";
 
-import missionImage from "./Images/img.png";
-import visionImage from "./Images/img2.png";
-import achievementsImage from "./Images/img4.png";
+// import missionImage from "./Images/img.png";
+// import visionImage from "./Images/img2.png";
+// import achievementsImage from "./Images/img4.png";
 
 const About = () => {
   const tabs = ["Mission", "Vision", "Achievements"];
