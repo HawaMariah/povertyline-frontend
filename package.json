@@ -12,9 +12,9 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.0",
-    "jwt-decode": "^4.0.0",
     "bcryptjs": "^2.4.3",
     "formik": "^2.4.5",
+    "jwt-decode": "^4.0.0",
     "nodemailer": "^6.9.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
