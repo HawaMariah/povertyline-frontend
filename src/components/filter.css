@@ -1,0 +1,19 @@
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+.filter select {
+    width: 150px;
+    height: 48px;
+    margin-left: 5px;
+    border-radius: 5px;
+    padding-left:  15px;
+    background-color: white;
+}
+
+/* .filter i {
+    font-size: 25px;
+    margin-left: 2%;
+    color: #656668;
+} */

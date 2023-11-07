@@ -12,3 +12,408 @@
     @apply container mx-auto py-24 px-6;
   }
 }
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --primary: #6d9b99;
+  --secondary: white;
+  --thirdColor: #055558;
+}
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: var(--secondary);
+}
+* {
+  margin: 0;
+}
+/* .App {
+  position: relative;
+} */
+p {
+  margin: 20px 0;
+}
+button {
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+/* .nav-bar {
+  position: sticky;
+  top: 0;
+} */
+
+/* home  */
+.home-layout {
+  width: 1200px;
+  margin: auto;
+}
+
+/*  header and navbar */
+/* header {
+  position: sticky;
+  top: 0;
+} */
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+}
+
+header span {
+  color: var(--primary);
+}
+header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header nav h1 {
+  margin-right: auto;
+  border-bottom: 3px solid var(--primary);
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+}
+header nav a.active {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+/* page content */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* help layout */
+.help-layout-content {
+  width: 1200px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.help-layout nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.help-layout nav a {
+  text-decoration: none;
+  padding: 8px;
+  border: 2px solid white;
+  border-radius: 6px;
+  transition: 0.3s;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.help-layout nav a:hover {
+  border: 2px solid var(--primary);
+}
+
+.help-layout nav a.active {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+/* faq */
+/* .faq {
+  margin-top: 50px;
+}
+.faq h3 {
+  margin-bottom: 20px;
+} */
+/* .faq .question {
+  background-color: white;
+  padding: 10px;
+  margin: 26px auto;
+  box-shadow: 0px 0px 5px 3px #0e1119c8;
+} */
+
+/* about */
+
+.about-us {
+  width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.about-us h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+/*Contact*/
+/* 1rem = 16px (font-size)*/
+form {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+form input,
+form label span,
+form textarea {
+  display: block;
+}
+form input,
+form textarea {
+  border: 2px solid rgb(54, 53, 53);
+  padding: 8px;
+  border-radius: 4px;
+}
+form label span {
+  margin-bottom: 10px;
+}
+form .submit {
+  color: white;
+  border: 3px solid var(--primary);
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: var(--primary);
+}
+
+/*Not found 404*/
+.not-found {
+  width: 100%;
+  text-align: center;
+}
+.not-found-404 {
+  color: var(--primary);
+  font-size: 10rem;
+}
+.not-found a {
+  border: 0;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* careers list */
+
+.careers > a {
+  display: block;
+  background-color: var(--thirdColor);
+  box-shadow: 0px 0px 5px 3px #0e1119c8;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+  text-decoration: none;
+}
+.careers > a:hover p {
+  color: var(--primary);
+}
+.careers p {
+  margin: 0;
+}
+.careers > a p:last-child {
+  font-size: 0.8em;
+  color: #bbb;
+}
+
+/* careers details */
+.career-layout {
+  width: 1200px;
+  margin: auto;
+}
+.career-details {
+  background-color: var(--thirdColor);
+  box-shadow: 0px 0px 5px 3px #0e1119c8;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 40px 0;
+}
+.career-details h2 span {
+  color: var(--primary);
+}
+
+.career-not-found {
+  background-color: #1d243cc8;
+  box-shadow: 0px 0px 5px 3px #0e1119c8;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 40px 0;
+}
+
+.career-not-found span {
+  font-size: 4rem;
+  color: var(--primary);
+}
+.career-not-found button {
+  margin: 5px;
+}
+
+.career-not-found .back-arrow {
+  font-size: 3rem;
+  background: none;
+  color: var(--primary);
+}
+/* modal*/
+.modal {
+}
+.modal-main .modal-first-container {
+  background-color: slateblue;
+}
+
+.modal-main form {
+  background-color: yellow;
+  opacity: 1;
+}
+
+/*************F O R M ***********************************/
+
+.admin {
+  text-align: center;
+}
+
+form {
+  width: 70%;
+  height: 560px;
+  margin: 50px auto 0 auto;
+  position: relative;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 560px;
+  margin: 0px auto;
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+.input-data {
+  height: 50px;
+  position: relative;
+  width: 50%;
+  margin: 26px 0;
+  margin: 30px auto;
+}
+
+legend {
+  color: white;
+  padding: 0px;
+  font-size: 30px;
+}
+
+.inputs {
+  border: none;
+  border-bottom: 2px solid black;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  background: transparent;
+  color: var(--primary);
+
+  font-size: 1rem;
+}
+.inputs::placeholder {
+  font-size: 01rem;
+  color: var(--secondaryColor);
+}
+
+.input-data select {
+  position: absolute;
+  right: px;
+  bottom: 40px;
+  width: 20px;
+  color: var(--secondaryColor);
+  background-color: var(--mainColor);
+}
+.btn-submit {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px black;
+  padding: 5px 15px;
+  margin: 30px;
+  font-size: 15px;
+}
+
+@media screen and (min-width: 340px) {
+  form {
+    width: 100%;
+    padding: 0;
+    border-radius: 20px;
+  }
+
+  form fieldset {
+    width: 100%;
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*card-div*/
+#home-card-div {
+  overflow: scroll;
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 70px;
+  background-color: whitesmoke;
+}
+
+#car-span {
+  margin-bottom: 30px;
+}
+/* career details*/
+#career-details {
+}
+/*  career detial requrements*/
+#requirements {
+}
+/*home main div*/
+#home-main-div {
+  display: flex;
+  flex-direction: row;
+}
+
+/*apply forom **/
