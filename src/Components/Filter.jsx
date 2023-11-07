@@ -48,8 +48,8 @@ function Filter({ onFilter, onLocationFilter }) {
         className="text-gray-800 border border-gray-300 rounded-lg bg-gray-50"
       >
         <option value="">Location</option>
-        {locations.map((location) => (
-          <option key={location} value={location}>
+        {locations.map((location, index) => (
+          <option key={index} value={location}>
             {location}
           </option>
         ))}

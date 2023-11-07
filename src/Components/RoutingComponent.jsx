@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { dataContext } from "../data/DataContextProvider";
-//Routes
+// //Routes
 import { Route, Routes } from "react-router-dom";
 //components
 import Home from "./Home";
@@ -38,7 +37,7 @@ function RoutingComponent() {
       />
 
       <Route path="/about" element={<About />} />
-      <Route
+      {/* <Route
         path="admin"
         element={
           <Admin
@@ -53,7 +52,7 @@ function RoutingComponent() {
       <Route path="help" element={<Help />}>
         <Route path="faq" element={<Faq />} />
         <Route path="contact" element={<ContactUs />} />
-      </Route>
+      </Route> */}
     </Routes>
   );
 }

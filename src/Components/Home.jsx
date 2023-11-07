@@ -7,7 +7,7 @@ import JobDetails from "./JobDetails";
 import Filter from "./Filter";
 import "./home.css";
 import NoResultsCard from "./NoResultsCard";
-import Newsletter from "./Newsletter";
+// import Newsletter from "./Newsletter";
 import { setJobData, setIsLoading, setFilteredData, setJobId ,setSearchTerm,setSelectedLocation} from "../features/job/jobSlice";
 
 function Home({ PostFormObjectToApplicantServer }) {
