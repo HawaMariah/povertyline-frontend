@@ -260,7 +260,7 @@ form .submit {
 
 form {
   width: 70%;
-  height: 560px;
+  /* height: 560px; */
   margin: 50px auto 0 auto;
   position: relative;
   margin: 20px auto;

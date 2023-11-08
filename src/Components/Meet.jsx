@@ -203,7 +203,7 @@ function Meet() {
                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg"
                 alt="avatar"
               />
-              <h5 className="mb-4 text-lg font-bold">Hawa Maria</h5>
+              <h5 className="mb-4 text-lg font-bold">Gitau njunge</h5>
               <p className="mb-6">Frontend Developer</p>
               <ul className="mx-auto flex list-inside justify-center">
                 <a href="#!" className="px-2">

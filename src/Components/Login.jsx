@@ -1,48 +1,100 @@
-import React, { useRef } from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { jwtDecode } from "jwt-decode"
+import axios from "axios";
+import { setLoggedInUser } from "../features/job/jobSlice";
+
+
 import "./signup.css";
-import img from "../assets/log.png";
-import bcrypt from "bcryptjs/dist/bcrypt";
+import img from "../assets/img1.png";
 
+const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
-// const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 const userSchema = yup.object().shape({
-  email: yup.string().email().required("Please enter valid email"),
-  password: yup.string().required("Password is required"),
+  email: yup.string().email().required("Please enter a valid email"),
+  password: yup
+    .string()
+    .min(5)
+    .matches(passwordRules, { message: "Please create a stronger password" })
+    .required("Password is required"),
 });
 
-const onSubmit = async (values, actions) => {
-  // const hashedpassword = bcrypt.hashSync(values.password, 10);
-  // console.log(hashedpassword);
-  // actions.setValues({...values, hashedpassword: hashedpassword});
-  // perform the get here
-  const getHashedPass = JSON.parse(
-    window.localStorage.getItem("signup")
-  ).hashedpassword;
-  // const getEmail = JSON.parse(window.localStorage.getItem('signup')).email
-  // console.log(getHashedPass)
-  // console.log(getEmail)
-  console.log(values);
-  console.log(actions);
-  console.log("submitted");
-  const password = values.password;
-  bcrypt.compare(password, getHashedPass, function (err, isMatch) {
-    if (err) {
-      throw err;
-    } else if (!isMatch) {
-      console.log("Password does not match!");
-    } else {
-      console.log("Password matches!");
-    }
-  });
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  // actions.resetForm();
-};
-
 function LogIn() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const loggedInUser = useSelector(state => state.jobs.loggedInUser)
+
+  useEffect(() => {
+    if (loggedInUser !== null) {
+      navigate("/")
+    }
+  }, [])
+
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("submitted");
+
+    const { email, password, usertype } = values;
+    console.log(usertype);
+
+    const fetchUser =  async (email) => {
+      return await fetch(`https://skillhunter-sj7f.onrender.com//employees/search?email=${email}`)
+    }
+
+    try {
+      const response = await axios.post(`https://skillhunter-sj7f.onrender.com/${usertype}s/login`, {
+        email: values.email,
+        password: values.password,
+      })
+    
+      console.log(response)
+      if (response.status === 200) {
+        // dispatch(setIsLoading(false))
+        console.log("SUCCESS LOG IN")
+
+        const token = response.data.access_token
+
+        localStorage.setItem('token', token);
+
+        const userDetails = await fetchUser(values.email)
+        console.log(userDetails)
+
+        const currentLoggedInUser = {
+          email: response.data.email,
+          username: response.data.username,
+          access_token: token,
+          id: response.data.id
+        }
+
+        dispatch(setLoggedInUser(currentLoggedInUser))
+        localStorage.setItem('user', JSON.stringify(currentLoggedInUser));
+
+        if (usertype === "employee") {
+          navigate("/findjobs");
+        } else {
+          navigate("/")
+        }
+      }
+    } catch (error) {
+      // Handle error, e.g., display error message to the user
+      console.log(error);
+
+      if (error.response.status === 401 || error.response.status === 400) {
+        setErrorMessage(error.response.data.message);
+      }
+    };
+
+    actions.resetForm();
+  };
+
   const {
     values,
     errors,
@@ -53,15 +105,13 @@ function LogIn() {
     handleSubmit,
   } = useFormik({
     initialValues: {
+      usertype: "",
       email: "",
       password: "",
-      //   hashedpassword: "",
     },
     validationSchema: userSchema,
     onSubmit,
   });
-  // console.log(values);
-  //   console.log(errors)
 
   return (
     <>
@@ -83,12 +133,15 @@ function LogIn() {
               onSubmit={handleSubmit}
               autoComplete="on"
             >
+
               <label className="">Employee or Employer</label>
-              <select id="user" name="user">
+              <select id="usertype" name="usertype" onChange={handleChange} value={values.usertype}>
               <option value="Select an option">Select an option</option>
                 <option value="employer">Employer</option>
                 <option value="employee">Employee</option>
-              </select>
+              </select> 
+
+
               <label className="">Email</label>
               <input
                 className={
