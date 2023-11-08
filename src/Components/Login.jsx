@@ -60,7 +60,7 @@ function LogIn() {
     validationSchema: userSchema,
     onSubmit,
   });
-  console.log(values);
+  // console.log(values);
   //   console.log(errors)
 
   return (
@@ -83,6 +83,12 @@ function LogIn() {
               onSubmit={handleSubmit}
               autoComplete="on"
             >
+              <label className="">Employee or Employer</label>
+              <select id="user" name="user">
+              <option value="Select an option">Select an option</option>
+                <option value="employer">Employer</option>
+                <option value="employee">Employee</option>
+              </select>
               <label className="">Email</label>
               <input
                 className={

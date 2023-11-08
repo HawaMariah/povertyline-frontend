@@ -3,6 +3,11 @@ import React from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import img from "../assets/img1.png";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoading } from "../features/job/jobSlice";
+
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
@@ -16,15 +21,53 @@ const userSchema = yup.object().shape({
     .required("Password is required"),
 });
 
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("submitted");
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
+
 
 function SignUp() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("submitted");
+
+    const { name, email, username, password, usertype } = values;
+    console.log(name, email, username, password)
+  
+    await axios.post(`https://skillhunter-sj7f.onrender.com/${usertype}s/register`, {
+      name: values.name, 
+      email: values.email, 
+      username: values.username, 
+      password: values.password
+    })
+    .then((response) => {
+        console.log(response)
+        if (response.status === 201) {
+            dispatch(setIsLoading(false))
+            // setLoggedInUser(response.data);
+            // localStorage.setItem('token', response.data.access_token);
+            // localStorage.setItem('user', JSON.stringify(response.data));
+        }
+
+        if (usertype === "employee") {
+          navigate("/login");
+        } else {
+          navigate("/")
+        }
+    }).catch((error) => {
+        // Handle error.
+        console.log(error);
+  
+        if (error.response.status === 401 || error.response.status === 400) {
+            setErrorMessage(error.response.data.message);
+        }
+    });
+  
+    actions.resetForm();
+  };
+  
+
   const {
     values,
     errors,
@@ -35,6 +78,7 @@ function SignUp() {
     handleSubmit,
   } = useFormik({
     initialValues: {
+      username: "",
       name: "",
       email: "",
       password: "",
@@ -42,6 +86,8 @@ function SignUp() {
     validationSchema: userSchema,
     onSubmit,
   });
+
+
 
   return (
     <>
@@ -68,6 +114,13 @@ function SignUp() {
               onSubmit={handleSubmit}
               autoComplete="off"
             >
+              <label className="">Employee or Employer</label>
+              <select id="usertype" name="usertype" onChange={handleChange} value={values.usertype}>
+              <option value="Select an option">Select an option</option>
+                <option value="employer">Employer</option>
+                <option value="employee">Employee</option>
+              </select> 
+
               <label className="">Name</label>
               <input
                 className={errors.name && touched.name ? "input-error" : ""}
@@ -81,6 +134,22 @@ function SignUp() {
               {errors.name && touched.name && (
                 <p className="error">{errors.name}</p>
               )}
+
+
+              <label className="">Username</label>
+              <input
+                className={errors.username && touched.username ? "input-error" : ""}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.username}
+                id="username"
+                type="text"
+                placeholder="johndoe"
+              />
+              {errors.username && touched.username && (
+                <p className="error">{errors.username}</p>
+              )}
+
               <label className="">Email</label>
               <input
                 className={errors.email && touched.email ? "input-error" : ""}
@@ -114,15 +183,15 @@ function SignUp() {
                 className="bg-[#235F97] flex w-full justify-center rounded-md px-3 p-2.5 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 type="submit"
               >
-                SIGN UP
+                Sign Up
               </button>
             </form>
             <br />
             <div className="ml-5">
               this isn't my first rodeo{" "}
-              <a href="#" className="text-[#235F97]">
-                SIGN IN
-              </a>
+              <NavLink to="/login" className="text-[#235F97]">
+                LOG IN
+              </NavLink>
             </div>
           </div>
         </div>
