@@ -121,7 +121,7 @@ function LogIn() {
         </div>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12">
           <h1 className="text-center font-bold text-3xl lg:text-3xl mb-1">
-            Log In{" "}
+            Log Me Back In{" "}
           </h1>
           <p className="text-center font-Actor font-medium text-xs lg:text-2xl">
             Welcome back!
@@ -129,49 +129,55 @@ function LogIn() {
 
           <div className=" md:mx-auto md:w-auto lg:w-full md:max-w-sm">
             <form
-              className="m-0 flex flex-col space-y-10"
+              className="m-0 flex flex-col space-y-8"
               onSubmit={handleSubmit}
               autoComplete="on"
             >
+              <div>
+                <label className="mb-5">Employee or Employer</label>
+                <select id="usertype" name="usertype" onChange={handleChange} value={values.usertype}>
+                <option value="Select an option">Select an option</option>
+                  <option value="employer">Employer</option>
+                  <option value="employee">Employee</option>
+                </select> 
+              </div>
 
-              <label className="">Employee or Employer</label>
-              <select id="usertype" name="usertype" onChange={handleChange} value={values.usertype}>
-              <option value="Select an option">Select an option</option>
-                <option value="employer">Employer</option>
-                <option value="employee">Employee</option>
-              </select> 
-
-
-              <label className="">Email</label>
-              <input
-                className={
-                  errors.email && touched.email ? "input-error" : "py-2"
-                }
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-                id="email"
-                type="text"
-                placeholder="johndoe@gmail.com"
-              />
-              {errors.email && touched.email && (
-                <p className="error">{errors.email}</p>
+              <div>
+                <label className="mb-4">Email</label>
+                <input
+                  className={
+                    errors.email && touched.email ? "input-error" : "py-2"
+                  }
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  id="email"
+                  type="text"
+                  placeholder="johndoe@gmail.com"
+                />
+                {errors.email && touched.email && (
+                  <p className="error">{errors.email}</p>
               )}
-              <label className="">Password</label>
-              <input
-                className={
-                  errors.password && touched.password ? "input-error" : "py-2"
-                }
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-                id="password"
-                type="password"
-                placeholder="password"
-              />
-              {errors.password && touched.password && (
-                <p className="error">{errors.password}</p>
-              )}
+              </div>
+
+              <div>
+                <label className="mb-4">Password</label>
+                <input
+                  className={
+                    errors.password && touched.password ? "input-error" : "py-2"
+                  }
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  id="password"
+                  type="password"
+                  placeholder="password"
+                />
+                {errors.password && touched.password && (
+                  <p className="error">{errors.password}</p>
+                )}
+              </div>
+
               <button
                 disabled={isSubmitting}
                 className="bg-[#235F97] flex w-full justify-center rounded-lg px-3 p-2.5 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
