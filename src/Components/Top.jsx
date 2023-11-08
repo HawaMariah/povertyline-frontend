@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt1 } from "react-icons/hi";
@@ -16,9 +16,9 @@ function Top() {
   }
   return (
     <>
-      <div className="flex items-center justify-between p-10 lg:flex-row bg-[#bad9d8] shadow-xl ">
+      <div className="flex items-center justify-between p-5 lg:flex-row bg-[#bad9d8] shadow-xl ">
         <div className="text-3xl uppercase" >
-        <h1>Gighunt</h1>
+        <NavLink to="/">Gighunt</NavLink>
         </div>
         <div className="space-x-4">
           <div className=" hidden  lg:block space-x-2">
@@ -51,7 +51,14 @@ function Top() {
               to="/signup"
               className="hover:text-white  px-5 py-2 text-xl"
             >
-              SignUp
+              Sign Up
+            </Link>
+
+            <Link
+              to="/login"
+              className="hover:text-white  px-5 py-2 text-xl"
+            >
+              Log in
             </Link>
           </div>
           <div className="ssm:block lg:hidden">

@@ -3,6 +3,7 @@ import ApplyForm from "./ApplyForm";
 import {useSelector, useDispatch} from 'react-redux'
 import Register from "./Register";
 import Login from "./Login";
+import { NavLink } from "react-router-dom";
 
 
 function Apply() {
@@ -26,7 +27,9 @@ function Apply() {
       {loggedInUser ? (
         <ApplyForm />
       ) : (
-        <Login />
+        <div className="p-10">You are not logged in. Click here to {" "}
+          <NavLink to="/login" className="underline text-blue-500">login</NavLink> 
+          {" "}or {" "}<NavLink to="/signup" className="underline text-blue-500">register</NavLink></div>
       )}
     </div>
   );

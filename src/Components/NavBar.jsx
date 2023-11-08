@@ -10,8 +10,7 @@ function NavBar() {
             GIG <span>HUNTING</span>
           </h1>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="abou
-          t">About</NavLink>
+          <NavLink to="about">About</NavLink>
           <NavLink to="contact us">Contact us</NavLink>
 
           
