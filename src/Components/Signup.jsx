@@ -48,11 +48,11 @@ function SignUp() {
           // localStorage.setItem('user', JSON.stringify(response.data));
         }
 
-        if (usertype === "employee") {
+        // if (usertype === "employee") {
           navigate("/login");
-        } else {
-          navigate("/");
-        }
+        // } else {
+          // navigate("/");
+        // }
       })
       .catch((error) => {
         // Handle error.

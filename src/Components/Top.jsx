@@ -161,6 +161,8 @@ function Top() {
 
   const logout = () => {
     dispatch(setLoggedInUser(null));
+
+
     navigate("/");
   };
 
@@ -185,9 +187,16 @@ function Top() {
               Find job
             </Link>
 
-            <Link to="/admin" className="hover:text-white  px-5 py-2 text-xl">
+          {
+            loggedInUser !== null && loggedInUser.usertype === "employer" ? 
+            (
+              <Link to="/admin" className="hover:text-white  px-5 py-2 text-xl">
               Admin
             </Link>
+            ): 
+            ("")
+          }
+            
 
             <Link
               to="/contactus"

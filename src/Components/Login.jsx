@@ -71,7 +71,8 @@ function LogIn() {
           email: response.data.email,
           username: response.data.username,
           access_token: token,
-          id: response.data.id
+          id: response.data.id,
+          usertype: values.usertype
         }
 
         dispatch(setLoggedInUser(currentLoggedInUser))
@@ -80,7 +81,7 @@ function LogIn() {
         if (usertype === "employee") {
           navigate("/findjobs");
         } else {
-          navigate("/")
+          navigate("/admin")
         }
       }
     } catch (error) {

@@ -12,6 +12,7 @@ function Profile() {
 
   const logout = () => {
     dispatch(setLoggedInUser(null));
+    localStorage.setItem('user', null);
     navigate("/");
   };
 

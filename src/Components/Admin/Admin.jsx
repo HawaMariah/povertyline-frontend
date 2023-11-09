@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import View from "./View";
 import NewJob from "./NewJob";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 import AdminCareerDetails from "./AdminCareerDetails";
 import AdminLoadDetailOnInitialRender from "./AdminLoadDetailOnInitialRender";
 import Styles from "./Admin-Styles/Styles.css";
 import { tab } from "@material-tailwind/react";
 import ApplicantsTable from "../Applicants/ApplicantsTable";
+import { useSelector } from "react-redux";
 
 function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
   const [adminJobs, setAdminJobs] = useState([]);
@@ -20,8 +21,15 @@ function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
   const [isStatic, setIsStatic] = useState(false);
   console.log(isStatic);
 
+  const loggedInUser = useSelector(state => state.jobs.loggedInUser)
+  const navigate = useNavigate()
+
   useEffect(() => {
     setAdminJobs(jobs);
+
+    if (loggedInUser === null || loggedInUser.usertype === "employee") {
+      navigate("/")
+    }
   }, []);
 
   function tableHandle() {
