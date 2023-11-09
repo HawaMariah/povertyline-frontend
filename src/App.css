@@ -363,7 +363,7 @@ legend {
 /*card-div*/
 #home-card-div {
   overflow: scroll;
-  height: 82vh;
+  height: 180vh;
   display: flex;
   flex-direction: column;
   padding: 0 70px;

@@ -74,13 +74,13 @@ function JobDetails({
               {isApplied ? "Close" : "Apply"}
             </button>
 
-            <a
+            {/* <a
               href="#"
               className="text-blue-600 dark:text-blue-400 hover:underline"
               onClick={toggleReadMoreLess}
             >
               {isShowMore ? "Read less" : "Read More⟶"}
-            </a>
+            </a> */}
             <div className="flex items-center">
               <img
                 src="https://stackdiary.com/140x100.png"

@@ -68,7 +68,7 @@ function Profile() {
   };
 
   useEffect(() => {
-    if (loggedInUser === null) {
+    if (loggedInUser === null) {  
       navigate("/login");
     }
 
