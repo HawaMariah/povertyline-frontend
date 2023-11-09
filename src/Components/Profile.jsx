@@ -83,47 +83,50 @@ function Profile() {
   }
 
   return (
-    <div className="bg-white flex flex-row justify-center   pt-10">
-      <div className="w-full px-10 lg:w-[50vw]">
-        <div className="bg-[#d9d9d9] rounded-[20px] p-10 mb-10">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-black ">
-              {loggedInUser.username}
-            </div>
-            <div className="" />
+    <>
+      <div className="bg-white flex flex-row justify-center   pt-10">
+        <div className="w-full px-10 lg:w-[50vw]">
+          <div className="bg-[#d9d9d9] rounded-[20px] p-10 mb-10">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-black ">
+                {loggedInUser.username}
+              </div>
+              <div className="" />
 
-            <div className=" rounded-full w-16 h-16 mx-auto mb-4relative inline-flex items-center justify-center overflow-hidden  dark:bg-gray-600">
-              <span className="font-medium text-gray-600 dark:text-gray-300">
-                {" "}
-                {loggedInUser.username
-                  ? loggedInUser.username.slice(0, 2).toUpperCase()
-                  : ""}
-              </span>
-            </div>
-          </div>
-
-          <div className="mt-6 text-lg font-normal text-black pt-10">
-            <div className="mb-3">
-              <span className="font-semibold"> Name:</span>
-              {loggedInUser.username}
+              <div className=" rounded-full w-16 h-16 mx-auto mb-4relative inline-flex items-center justify-center overflow-hidden  dark:bg-gray-600">
+                <span className="font-medium text-gray-600 dark:text-gray-300">
+                  {" "}
+                  {loggedInUser.username
+                    ? loggedInUser.username.slice(0, 2).toUpperCase()
+                    : ""}
+                </span>
+              </div>
             </div>
 
-            <div>
-              <span className="font-semibold">Email:</span> {loggedInUser.email}
+            <div className="mt-6 text-lg font-normal text-black pt-10">
+              <div className="mb-3">
+                <span className="font-semibold"> Name:</span>
+                {loggedInUser.username}
+              </div>
+
+              <div>
+                <span className="font-semibold">Email:</span>{" "}
+                {loggedInUser.email}
+              </div>
             </div>
-          </div>
-          <div className="mt-10 text-center">
-            <Link
-              to="/#"
-              onClick={logout}
-              className=" px-5 py-2 text-xl bg-red-500 rounded-full text-white "
-            >
-              Logout
-            </Link>
+            <div className="mt-10 text-center">
+              <Link
+                to="/#"
+                onClick={logout}
+                className=" px-5 py-2 text-xl bg-red-500 rounded-full text-white "
+              >
+                Logout
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
