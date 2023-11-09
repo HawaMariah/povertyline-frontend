@@ -27,9 +27,9 @@ function Apply() {
       {loggedInUser ? (
         <ApplyForm />
       ) : (
-        <div className="p-10">You are not logged in. Click here to {" "}
+        <div className="p-10 text-xl mt-6">You are not logged in. Click here to {" "}
           <NavLink to="/login" className="underline text-blue-500">login</NavLink> 
-          {" "}or {" "}<NavLink to="/signup" className="underline text-blue-500">register</NavLink></div>
+          {" "}or {" "}<NavLink to="/signup" className="underline text-blue-500">Sign Up</NavLink></div>
       )}
     </div>
   );

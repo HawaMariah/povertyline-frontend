@@ -40,8 +40,16 @@ function Top() {
             >
               Find job
             </Link>
+
             <Link
-              to="/donate"
+              to="/admin"
+              className="hover:text-white  px-5 py-2 text-xl"
+            >
+              Admin
+            </Link>
+
+            <Link
+              to="/contactus"
               className="hover:text-white  px-5 py-2 text-xl"
             >
               Contact us

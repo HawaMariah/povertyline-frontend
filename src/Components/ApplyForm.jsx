@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState} from "react";
 import { toast } from "react-toastify";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 
 
 function ApplyForm() {
+  useEffect(() => {
+    emailjs.init("rZNjwCu7QYQwYwSoa")
+  })
+
+  const form = useRef();
+  const sendEmail = () => { 
+    const serviceId = "service_o77mhct"
+    const templateId = "template_u70t73l"
+
+    emailjs
+      .sendForm(
+        serviceId,
+        templateId,
+        form.current,
+        "rZNjwCu7QYQwYwSoa"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          form.current.reset();
+          alert ('message succesfully sent')
+        
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+   
+  };
+
   const [closeForm, setCloseForm] = useState(true);
   const [FormObject, setFormObject] = useState({
     name: "",
@@ -30,7 +63,10 @@ function ApplyForm() {
       CV: "",
       email: "",
     });
+
+    sendEmail();
     toastSuccessfullyApplied();
+
   }
 
   function handleFormClose() {
@@ -43,7 +79,7 @@ function ApplyForm() {
     });
   return (
     <div id="apply-form">
-      <form onSubmit={formSubmit}>
+      <form onSubmit={formSubmit} ref={form}>
         <div
           className=" mt-4  left-0 top-0 flex justify-center items-center "
           id="modal-id"
@@ -69,6 +105,7 @@ function ApplyForm() {
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="James Paul"
                 />
+
                 <label
                   for="name"
                   className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
@@ -84,39 +121,97 @@ function ApplyForm() {
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="johndoe@gmail.com"
                 />
+
+
+                <label
+                  for="name"
+                  className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  value={FormObject.email}
+                  onChange={FornObjectCreator}
+                  required
+                  className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                  placeholder="johndoe@gmail.com"
+                />
+
+
+                <label
+                  for="name"
+                  className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  value={FormObject.email}
+                  onChange={FornObjectCreator}
+                  required
+                  className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                  placeholder="johndoe@gmail.com"
+                />
+
+
+                <label
+                  for="name"
+                  className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  value={FormObject.email}
+                  onChange={FornObjectCreator}
+                  required
+                  className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                  placeholder="johndoe@gmail.com"
+                />
+
+
+
+                <label
+                  for="name"
+                  className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  value={FormObject.email}
+                  onChange={FornObjectCreator}
+                  required
+                  className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                  placeholder="johndoe@gmail.com"
+                />
+
+
+
+                <label
+                  for="name"
+                  className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  value={FormObject.email}
+                  onChange={FornObjectCreator}
+                  required
+                  className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                  placeholder="johndoe@gmail.com"
+                />
+
               </div>
               <div className="max-w-xl">
-                <label className="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
-                  <span className="flex items-center space-x-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-gray-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                      />
-                    </svg>
-                    <span className="font-medium text-gray-600">
-                      Drop files to Attach, or
-                      <span className="text-blue-600 underline">browse</span>
-                    </span>
-                  </span>
-                  <input
-                    type="file"
-                    id="CV"
-                    name="CV"
-                    value={FormObject.CV}
-                    onChange={FornObjectCreator}
-                    required
-                    className="hidden"
-                  />
-                </label>
+
               </div>
               <div className="p-3  mt-2 text-center space-x-4 md:block">
                 <button

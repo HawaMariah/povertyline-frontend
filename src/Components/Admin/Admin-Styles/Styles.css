@@ -1,0 +1,48 @@
+#admin-jobs {
+    background-color: whitesmoke;
+    overflow: scroll;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  #admin-job-cards {
+    margin: 20px;
+    box-shadow: 0px 0px 10px 3px rgb(243, 240, 240);
+  }
+  #admin-jobs-card-body {
+  }
+  #admin-jobs-card-btn-outer-div {
+    width: 100%;
+  }
+  #admin-jobs-card-btn-inner-div {
+    display: flex;
+    justify-content: space-around;
+  }
+  #admin-jobs-card-btn button {
+    width: 150px;
+  }
+  #fortmButton,
+  #table-link {
+    color: white;
+    background-color: slateblue;
+    padding: 10px 20px;
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+    margin: 20px;
+  }
+  
+  #career-detail-admin-section {
+    margin-top: 80px;
+  }
+  
+  thead {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgb(177, 214, 214);
+  }
+  td {
+    font-size: 12px;
+  }
