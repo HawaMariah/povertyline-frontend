@@ -84,7 +84,7 @@ function SignUp() {
   return (
     <>
       <div className="grid md:grid-cols-2   md:h-[100vh]  ">
-        <div className=" bg-[#bad9d8] hidden md:block w-full pt-60 lg:pt-10 ">
+        <div className=" bg-[#bad9d8] hidden md:block w-[50vw] pt-60 lg:pt-10 ">
           <img className="w-[50vw] h-auto" src={img} alt="Sign Up" />
           <div className="flex justify-center text-[18px]  lg:text-[24px]  ">
             <p>

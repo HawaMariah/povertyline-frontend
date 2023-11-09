@@ -174,7 +174,7 @@ function Top() {
   }
   return (
     <>
-      <div className="flex items-center justify-between p-5 lg:flex-row bg-[#bad9d8] shadow-xl ">
+      <div className="flex items-center justify-between p-10 lg:flex-row bg-[#bad9d8] shadow-xl ">
         <div className="text-3xl uppercase">
           <NavLink to="/">Gighunt</NavLink>
         </div>
