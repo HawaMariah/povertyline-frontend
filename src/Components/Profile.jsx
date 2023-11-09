@@ -55,6 +55,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { setLoggedInUser } from "../features/job/jobSlice";
 
 function Profile() {
   const dispatch = useDispatch();

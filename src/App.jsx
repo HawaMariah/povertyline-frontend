@@ -19,6 +19,7 @@ import Employer from "./Components/Employers/Employer";
 import Admin from "./Components/Admin/Admin";
 import ApplicantsTable from "./Components/Applicants/ApplicantsTable";
 import AdminProfiles from "./Components/Admin/AdminProfiles";
+import Faq from "./Components/Faq";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,14 +39,16 @@ function App() {
         <Top />
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route exact path="/userprofile" element={<Profile />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/login" element={<LogIn />} />
-          <Route exact path="/community" element={<Community />} />
-          <Route exact path="/findjobs" element={<Home />} />
-          <Route exact path="/contactus" element={<ContactUs />} />
-          <Route exact path="/employer" element={<Employer />} />
-          <Route exact path="/adminprofile" element={<AdminProfiles />} />
+
+            <Route exact path="/userprofile" element={<Profile/>} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/login" element={<LogIn />} />
+            <Route exact path="/community" element={<Community />} />
+            <Route exact path="/findjobs" element={<Home />} />
+            <Route exact path="/contactus" element={<ContactUs/>} />
+            <Route exact path="/employer" element={<Employer/>} />
+            <Route exact path="/adminprofile" element={<AdminProfiles/>} />
+            <Route exact path="/faqs" element={<Faq/>} />
 
           <Route exact path="/admin" element={<Admin />} />
           <Route path="/admin/Applications" element={<ApplicantsTable />} />
