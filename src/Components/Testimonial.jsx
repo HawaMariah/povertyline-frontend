@@ -9,7 +9,7 @@ function Testimonial() {
           <h3 className="mb-6 text-3xl font-bold">Testimonials</h3>
           <p className="mb-6 pb-2 text-xl md:mb-12">
             Here's what some of our valued beneficiaries and partners have to
-            say about their experience with Nourishnow's feeding program. Their
+            say about their experience with Gighunts Jobs program. Their
             stories serve as a testament to the impact we're making together in
             the community. We're honored to share their heartfelt testimonials.
           </p>
@@ -26,8 +26,8 @@ function Testimonial() {
               />
             </div>
             <p className="my-4 text-xl ">
-              "NourishNow has been a lifeline for me and my family. The
-              nutritious meals they provide have eased our burdens and given us
+              "Gighunt has been a lifeline for me and my family. The
+              awesome connections they provide have eased our burdens and given us
               hope. We're so grateful for their unwavering support"
             </p>
             <p className="italic">- Anna Morian</p>
@@ -43,7 +43,7 @@ function Testimonial() {
               />
             </div>
             <p className="my-4 text-xl ">
-              "Partnering with Food4Education has been a rewarding experience.
+              "Partnering with Gighunt has been a rewarding experience.
               Their commitment to the community is inspiring, and we're proud to
               contribute to their mission. Together, we're making a positive
               impact."
@@ -60,7 +60,7 @@ function Testimonial() {
               />
             </div>
             <p className="my-4 text-xl ">
-              "NourishNow not only feeds our bodies but also our souls. Their
+              "Gighunt  not only feeds our bodies but also our souls. Their
               kindness and dedication are truly heartwarming. They've shown me
               that there are people who care and are willing to help."
             </p>
@@ -76,7 +76,7 @@ function Testimonial() {
               />
             </div>
             <p className="my-4 text-xl ">
-              "Supporting Food4Education has been one of the most fulfilling
+              "Supporting Gighunt has been one of the most fulfilling
               experiences. Knowing that my contributions directly nourish those
               in need is a privilege. I'm proud to be a part of this incredible
               cause."

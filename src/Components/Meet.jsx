@@ -1,5 +1,5 @@
 import React from "react";
-
+import img from "../assets/AI.png"
 function Meet() {
   return (
     <div >
@@ -152,8 +152,8 @@ function Meet() {
             </div>
             <div className="mb-12 md:mb-0">
               <img
-                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px]"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).jpg"
+                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px] h-[160px] object-cover"
+                src={img}
                 alt="avatar"
               />
               <h5 className="mb-4 text-lg font-bold">Hawa Maria</h5>
