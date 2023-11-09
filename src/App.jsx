@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLoggedInUser } from "./features/job/jobSlice";
-
+import Profile from "./Components/Profile";
 
 import Landing from "./Components/Landing";
 // import Postjob from "./components/Postjob";
@@ -13,7 +13,7 @@ import Home from "./Components/Home";
 import "./App.css";
 import Top from "./Components/Top";
 import LogIn from "./Components/Login";
-import Profile from "./Components/Profile";
+
 
 
 function App() {
@@ -31,8 +31,7 @@ function App() {
   return (
     <>
       <div>
-      <Top />
-       
+      <Top />      
            <Routes>
           <Route exact path="/" element={<Landing />} />
             <Route exact path="/userprofile" element={<Profile/>} />
@@ -46,7 +45,7 @@ function App() {
         
         {/* <Postjob/> */}
        
-       
+      
 
        
       </div>
