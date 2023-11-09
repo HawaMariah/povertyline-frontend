@@ -51,9 +51,9 @@ function Home({ PostFormObjectToApplicantServer }) {
 
   useEffect(() => {
     if (jobData.length === 0) {
-    fetch(`https://skill-hunter-server.onrender.com/careers`)
+    fetch(`https://gighunter-l0tq.onrender.com/jobs`)
     .then((res) => res.json())
-    .then((data) => dispatch(setJobData(data)))
+    .then((data) => dispatch(setJobData(data.jobs)))
     .finally(dispatch(setIsLoading(false)));
     }
 

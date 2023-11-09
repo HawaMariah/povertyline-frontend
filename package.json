@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@material-tailwind/react": "^2.1.4",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",

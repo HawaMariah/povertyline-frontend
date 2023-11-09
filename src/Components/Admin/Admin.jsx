@@ -7,6 +7,7 @@ import AdminCareerDetails from "./AdminCareerDetails";
 import AdminLoadDetailOnInitialRender from "./AdminLoadDetailOnInitialRender";
 import Styles from "./Admin-Styles/Styles.css";
 import { tab } from "@material-tailwind/react";
+import ApplicantsTable from "../Applicants/ApplicantsTable";
 
 function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
   const [adminJobs, setAdminJobs] = useState([]);
@@ -51,25 +52,28 @@ function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
         >
           {btnText}
         </button>
-        <NavLink id="table-link" to="Applications" onClick={tableHandle}>
+        <NavLink id="table-link" to="#" onClick={tableHandle}>
           Applications
         </NavLink>
 
         {showTable ? (
-          <Outlet />
+          <ApplicantsTable />
         ) : (
           <div>
             {show ? (
+              // <div>hellow</div>
               <NewJob PostFormObjectToServer={PostFormObjectToServer} />
             ) : (
               <div id="career-detail-admin-section">
                 {showRenderOnLoad ? (
+                  // <div>hellowe wwold</div>
                   <AdminCareerDetails
                     careerDetails={careerDetails}
                     isStatic={isStatic}
                   />
                 ) : (
-                  <AdminLoadDetailOnInitialRender />
+                  <div></div>
+                  // <AdminLoadDetailOnInitialRender />
                 )}
               </div>
             )}
@@ -78,6 +82,47 @@ function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
       </div>
     </div>
   );
- }
+  // const [jobs, setJobs] = useState([]);
+  // const leftSectionRef = useRef(null);
+  // const rightSectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/careers")
+  //     .then((r) => r.json())
+  //     .then((data) => setJobs(data));
+
+  //   const leftSection = leftSectionRef.current;
+  //   const rightSection = rightSectionRef.current;
+
+  //   if (leftSection && rightSection) {
+  //     leftSection.addEventListener("scroll", handleLeftScroll);
+  //   }
+
+  //   return () => {
+  //     if (leftSection) {
+  //       leftSection.removeEventListener("scroll", handleLeftScroll);
+  //     }
+  //   };
+  // }, []);
+
+  // const handleLeftScroll = () => {
+  //   const rightSection = rightSectionRef.current;
+  //   if (rightSection) {
+  //     rightSection.style.top = `${leftSectionRef.current.scrollTop}px`;
+  //   }
+  // };
+
+  // return (
+  //   <div className="grid grid-cols-2 justify-center">
+  //     <div ref={leftSectionRef} style={{ overflowY: "auto", height: "82vh" }}>
+  //       <View jobs={jobs} />
+  //     </div>
+  //     <div>
+  //       <NewJob />
+  //     </div>
+  //   </div>
+
+  //   //right section scroll - remove the height property: ref={rightSectionRef} style={{ overflowY: "auto", height: "500px" }}
+}
 
 export default Admin;
