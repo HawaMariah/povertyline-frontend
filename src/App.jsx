@@ -13,7 +13,7 @@ import Home from "./Components/Home";
 import "./App.css";
 import Top from "./Components/Top";
 import LogIn from "./Components/Login";
-import Profile from "./Components/Profile";
+
 import ContactUs from "./Components/Contactus";
 import Employer from "./Components/Employers/Employer";
 import Admin from "./Components/Admin/Admin";
@@ -21,46 +21,37 @@ import ApplicantsTable from "./Components/Applicants/ApplicantsTable";
 import AdminProfiles from "./Components/Admin/AdminProfiles";
 
 function App() {
-
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-        if (localStorage.getItem('user')) {
-            const user = JSON.parse(localStorage.getItem('user'));
-            dispatch(setLoggedInUser(user));
-        }
+    if (localStorage.getItem("token")) {
+      if (localStorage.getItem("user")) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        dispatch(setLoggedInUser(user));
+      }
     }
-
-}, []);
+  }, []);
 
   return (
     <>
       <div>
-      <Top />      
-           <Routes>
+        <Top />
+        <Routes>
           <Route exact path="/" element={<Landing />} />
-            <Route exact path="/userprofile" element={<Profile/>} />
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/login" element={<LogIn />} />
-            <Route exact path="/community" element={<Community />} />
-            <Route exact path="/findjobs" element={<Home />} />
-            <Route exact path="/contactus" element={<ContactUs/>} />
-            <Route exact path="/employer" element={<Employer/>} />
-            <Route exact path="/adminprofile" element={<AdminProfiles/>} />
+          <Route exact path="/userprofile" element={<Profile />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<LogIn />} />
+          <Route exact path="/community" element={<Community />} />
+          <Route exact path="/findjobs" element={<Home />} />
+          <Route exact path="/contactus" element={<ContactUs />} />
+          <Route exact path="/employer" element={<Employer />} />
+          <Route exact path="/adminprofile" element={<AdminProfiles />} />
 
-            <Route exact path="/admin" element={<Admin/>} />
-              <Route path="/admin/Applications" element={<ApplicantsTable />} />
-          
-          </Routes> 
-          
-        
-        {/* <Postjob/> */}
-       
+          <Route exact path="/admin" element={<Admin />} />
+          <Route path="/admin/Applications" element={<ApplicantsTable />} />
+        </Routes>
+
       
-
-       
       </div>
     </>
   );
