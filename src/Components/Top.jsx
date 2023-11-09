@@ -206,9 +206,10 @@ function Top() {
               FAQs
             </Link>
 
-            {loggedInUser !== null && loggedInUser.email ? (
+            
+            {loggedInUser !== null && loggedInUser.username ? (
               <>
-                <Link to="/userprofile" className="  px-5 py-2 text-xl">
+                <Link to="/userprofile" className="inline-block px-5 py-2 text-xl">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                     <svg
                       className="absolute w-12 h-12 text-gray-400 -left-1"
@@ -224,6 +225,7 @@ function Top() {
                     </svg>
                   </div>
                 </Link>
+                
 
                 {/* <Link to="/#" onClick={logout}>
                   logout
