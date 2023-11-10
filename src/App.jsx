@@ -13,7 +13,7 @@ import Home from "./Components/Home";
 import "./App.css";
 import Top from "./Components/Top";
 import LogIn from "./Components/Login";
-
+import Footer from "./Components/Footer";
 import ContactUs from "./Components/Contactus";
 import Employer from "./Components/Employers/Employer";
 import Admin from "./Components/Admin/Admin";
@@ -54,7 +54,7 @@ function App() {
           <Route path="/admin/Applications" element={<ApplicantsTable />} />
         </Routes>
 
-      
+      <Footer/>
       </div>
     </>
   );
