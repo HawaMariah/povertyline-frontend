@@ -24,6 +24,8 @@ function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
+
   const onSubmit = async (values, actions) => {
     console.log(values);
     console.log(actions);
@@ -33,7 +35,7 @@ function SignUp() {
     console.log(name, email, username, password);
 
     await axios
-      .post(`https://skillhunter-sj7f.onrender.com/${usertype}s/register`, {
+      .post(`${baseUrl}/${usertype}s/register`, {
         name: values.name,
         email: values.email,
         username: values.username,

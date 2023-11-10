@@ -5,10 +5,13 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
 function ApplyForm() {
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
+  const navigate = useNavigate()
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
   useEffect(() => {
     emailjs.init("rZNjwCu7QYQwYwSoa")
@@ -58,7 +61,7 @@ function ApplyForm() {
   });
 
   const saveJob = async () => {
-    return axios.post("https://gighunter-l0tq.onrender.com/employees/apply/1", {
+    return axios.post(`${baseUrl}/employees/apply/2`, {
       "name": "BENNY VILLA",
       "date_of_birth": "1990-01-01",
       "nationality": "US",
@@ -67,7 +70,7 @@ function ApplyForm() {
       "mobile": "+1 555-1234",
       "role": "Software Engineer",
       "work_duration": "Full-time",
-      "work_location": "Remote",
+      "work_locati  on": "Remote",
       "work_description": "Experienced software engineer with a focus on web development.",
       "school": "University of XYZ",
       "major": "Computer Science",
@@ -82,7 +85,6 @@ function ApplyForm() {
 
   function FornObjectCreator(e) {
     const { name, value } = e.target;
-    console.log(e.target.value);
 
     setFormObject((prevState) => {
       return { ...prevState, [name]: value };
@@ -91,32 +93,41 @@ function ApplyForm() {
 
   async function formSubmit(e) {
     e.preventDefault();
-    console.log(loggedInUser)
-    console.log(FormObject);
-    // postToApplicantServer(FormObject);
+    
+    try {
 
-    const response = await saveJob()
-    console.log(response)
+      console.log(loggedInUser)
+      console.log(FormObject);
+      // postToApplicantServer(FormObject);
 
-    sendEmail();
-    toastSuccessfullyApplied();
+      const response = await saveJob()
+      console.log(response)
 
+      if (response.status === 201) {
+        sendEmail();
+        toastSuccessfullyApplied();
 
-    setFormObject({
-      "date_of_birth": "",
-      "nationality": "",
-      "city": "",
-      "user_email": "",
-      "mobile": "",
-      "role": "",
-      "work_duration": "",
-      "work_location": "",
-      "work_description": "",
-      "school": "",
-      "major": "",
-      "year_completed": 1
-    });
+        setFormObject({
+          "date_of_birth": "",
+          "nationality": "",
+          "city": "",
+          "user_email": "",
+          "mobile": "",
+          "role": "",
+          "work_duration": "",
+          "work_location": "",
+          "work_description": "",
+          "school": "",
+          "major": "",
+          "year_completed": 1
+      });
+      
+        navigate("/findjobs")
+    }
 
+    } catch (err) {
+      console.log(error)
+    }
   }
 
   function handleFormClose() {
@@ -124,7 +135,7 @@ function ApplyForm() {
   }
 
   const toastSuccessfullyApplied = () =>
-    toast(`Your Applicatin has been successfully submited...`, {
+    toast(`Your Application has been successfully submited...`, {
       type: "success",
     });
   return (

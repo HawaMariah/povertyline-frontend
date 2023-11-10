@@ -1,9 +1,10 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setJobData } from "../../features/job/jobSlice";
 
 
 const jobSchema = yup.object().shape({
@@ -30,7 +31,10 @@ export default function NewJob({ PostFormObjectToServer }) {
   //   skills: "",
   //   details: "",
   // });
+
+  const dispatch = useDispatch()
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
 
   function FornObjectCreator(e) {
     const { name, value } = e.target;
@@ -70,10 +74,18 @@ export default function NewJob({ PostFormObjectToServer }) {
       salary: values.salary,
       location: values.location,
       type: values.type,
-      employee: loggedInUser.id
+      employer_id: loggedInUser.id
     }
 
-    const response = await axios.post("https://gighunter-l0tq.onrender.com/employers/post_job", newJobDetials)
+    const response = await axios.post(`${baseUrl}/employers/post_job`, newJobDetials)
+
+    if (response && response.status === 201) {
+      const res = await axios.get(`${baseUrl}/jobs`)
+      if (res && res.status === 200) {
+        const updatedJobs = res.data
+        dispatch(setJobData(updatedJobs))
+      }
+    }
 
     console.log(response)
   }
@@ -82,6 +94,7 @@ export default function NewJob({ PostFormObjectToServer }) {
 
       <div className="md:mx-auto md:w-auto lg:w-full md:max-w-lg">
         <form onSubmit={handleSubmit} className="m-0 flex flex-col space-y-2 px-6">
+              <input name="employer_id" id="employer_id" type="hidden" value={loggedInUser.id}></input>
               <div>
                 <label className="mb-2">Type</label>
                 <select

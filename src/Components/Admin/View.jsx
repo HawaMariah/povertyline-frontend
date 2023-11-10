@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoading, setJobData } from "../../features/job/jobSlice";
 
@@ -12,7 +12,7 @@ function View({
   // const { careerDetails, setCareerDetail } = onClickDetails;
 //   const { deleteFromServer } = useContext(dataContext);
 
-const jobs = useSelector(state => state.jobs.jobData)
+const baseUrl = useSelector(state => state.jobs.baseUrl)
 const dispatch = useDispatch()
 
   function handleDetails(job) {
@@ -22,10 +22,23 @@ const dispatch = useDispatch()
     setShowRenderOnLoad(true);
   }
 
-  async function handelDelete(jobId) {
-    const response = await axios.delete(`https://gighunter-l0tq.onrender.com/jobs/${jobId}`)
+  useEffect(() => {
+    // if (jobs.length === 0) {
+      fetch(`${baseUrl}/jobs`)
+        .then((res) => res.json())
+        .then((data) => dispatch(setJobData(data.jobs)))
+        .finally(dispatch(setIsLoading(false)));
+      // }
+  }, [])
 
-    fetch(`https://gighunter-l0tq.onrender.com/jobs`)
+  const jobs = useSelector(state => state.jobs.jobData)
+  console.log(jobs)
+
+
+  async function handelDelete(jobId) {
+    const response = await axios.delete(`${baseUrl}/jobs/${jobId}`)
+
+    fetch(`${baseUrl}/jobs`)
       .then((res) => res.json())
       .then((data) => dispatch(setJobData(data.jobs)))
       .finally(dispatch(setIsLoading(false)));
@@ -58,7 +71,7 @@ const dispatch = useDispatch()
                     <span className="bg-green-100 mr-3 px-2.5 py-1.5 rounded-lg">
                       {" "}
                       <i className="fa fa-money-bills"></i> $
-                      {job.salary.toLocaleString()} per year
+                      {job?.salary?.toLocaleString()} per year
                     </span>
                     <button
                       type="button"

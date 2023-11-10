@@ -112,6 +112,8 @@ import img from "../assets/talk.jpg";
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
   const loggedInUser = useSelector((state) => state.jobs.loggedInUser);
 
   const logout = () => {
@@ -125,11 +127,17 @@ function Profile() {
       navigate("/login");
     }
 
-    fetch(`https://skillhunter-sj7f.onrender.com//employees/${loggedInUser.id}`)
+    fetch(`${baseUrl}/employees/${loggedInUser.id}`)
       .then((res) => res.json())
       .then((response) => {
         console.log(response);
       });
+
+    fetch(`${baseUrl}/employees/${loggedInUser.id}/applications`)
+      .then(res => res.json())
+      .then(response => {
+        console.log(response)
+      })
   }, [loggedInUser, navigate]);
 
   if (!loggedInUser) {
@@ -184,7 +192,52 @@ function Profile() {
                 Passionate web developer with a love for creating elegant, user-friendly interfaces. Skilled in HTML, CSS, and JavaScript. Always eager to learn and stay up-to-date with the latest technologies. Enthusiastic about building robust and scalable web applications   
                 </p>
             </div>
-            <div className="mt-10 text-center">
+
+            <br/>
+
+<div className="w-full flex items-center justify-center my-8"><h2 className="font-bold text-xl">Job Applications</h2></div>
+
+
+            <div class="mx-6 relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-md text-gray-700 uppercase dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">
+                    Job Title
+                </th>
+                <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">
+                    Company
+                </th>
+            </tr>
+        </thead>
+        <tbody className="">
+            <tr class="border-b text-md border-gray-200 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    Devops Engineer
+                </th>
+
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    Amazon
+                </th>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    Systems analyst
+                </th>
+
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    Microsoft Inc.
+                </th>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+
+
+
+
+            <div className="mt-14 text-center">
               <Link
                 to="/#"
                 onClick={logout}

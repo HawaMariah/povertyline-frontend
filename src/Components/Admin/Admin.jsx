@@ -24,8 +24,17 @@ function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
   const navigate = useNavigate()
 
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
+
   useEffect(() => {
     setAdminJobs(jobs);
+
+    if (jobData.length === 0) {
+      fetch(`${baseUrl}/jobs`)
+      .then((res) => res.json())
+      .then((data) => dispatch(setJobData(data.jobs)))
+      .finally(dispatch(setIsLoading(false)));
+    }
 
     if (loggedInUser === null || loggedInUser.usertype === "employee") {
       navigate("/")

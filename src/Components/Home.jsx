@@ -15,6 +15,7 @@ function Home({ PostFormObjectToApplicantServer }) {
 
 
   const jobData = useSelector(state => state.jobs.jobData)
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
   const isLoading = useSelector(state => state.jobs.isLoading)
   const filteredData = useSelector(state => state.jobs.filteredData)
   const jobId = useSelector(state => state.jobs.jobId)
@@ -51,7 +52,7 @@ function Home({ PostFormObjectToApplicantServer }) {
 
   useEffect(() => {
     if (jobData.length === 0) {
-    fetch(`https://gighunter-l0tq.onrender.com/jobs`)
+    fetch(`${baseUrl}/jobs`)
     .then((res) => res.json())
     .then((data) => dispatch(setJobData(data.jobs)))
     .finally(dispatch(setIsLoading(false)));
