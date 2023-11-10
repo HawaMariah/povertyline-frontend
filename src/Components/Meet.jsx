@@ -1,5 +1,9 @@
 import React from "react";
 import img from "../assets/AI.png"
+import img1 from "../assets/mercy.jpeg"
+import img2 from "../assets/bri.jpeg"
+import img3 from "../assets/lin.jpeg"
+import img4 from "../assets/git.jpeg"
 function Meet() {
   return (
     <div >
@@ -13,8 +17,8 @@ function Meet() {
             
             <div className="mb-12 lg:mb-0">
               <img
-                className="mx-auto mb-6 rounded-lg shadow-xl dark:shadow-black/20 w-[160px]"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg"
+                className="mx-auto mb-6 rounded-lg shadow-xl dark:shadow-black/20 w-[160px] h-[160px] object-cover" 
+                src={img3}
                 alt="avatar"
               />
               <h5 className="mb-4 text-lg font-bold">Lionel Kasembeli</h5>
@@ -60,8 +64,8 @@ function Meet() {
             </div>
             <div className="mb-12 lg:mb-0">
               <img
-                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px]"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).jpg"
+                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px] h-[160px] object-cover"
+                src={img1}
                 alt="avatar"
               />
               <h5 className="mb-4 text-lg font-bold">Mercy Chirie</h5>
@@ -107,8 +111,8 @@ function Meet() {
             </div>
             <div className="mb-12 md:mb-0">
               <img
-                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px]"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).jpg"
+                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px] h-[160px] object-cove"
+                src={img2}
                 alt="avatar"
               />
               <h5 className="mb-4 text-lg font-bold">Brian Kibet</h5>
@@ -199,8 +203,8 @@ function Meet() {
             </div>
             <div className="mb-12 md:mb-0">
               <img
-                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px]"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg"
+                className="mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[160px]  h-[160px] object-cover"
+                src={img4}
                 alt="avatar"
               />
               <h5 className="mb-4 text-lg font-bold">Gitau njunge</h5>
