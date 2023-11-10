@@ -11,7 +11,7 @@ const initialState = {
   jobId: null,
   loggedInUser: null,
   currentUserJobApplications: [],
-  
+  selectedJobId: null
 };
 
 const jobSlice = createSlice({
@@ -44,7 +44,10 @@ const jobSlice = createSlice({
     },
     setBaseUrl: (state, action) => {
       state.baseUrl = action.payload
-    }
+    },
+    setSelectedJobId: (state, action) => {
+      state.selectedJobId = action.payload
+    },
   },
 });
 
@@ -59,6 +62,7 @@ export const {
   setLoggedInUser,
   setCurrentUserJobApplications,
   setBaseUrl,
+  setSelectedJobId
 } = jobSlice.actions;
 
 export const selectJobData = (state) => state.jobs.jobData;
@@ -68,5 +72,6 @@ export const selectSearchTerm = (state) => state.jobs.searchTerm;
 export const selectJobId = (state) => state.jobs.jobId;
 export const selectCurrentUserJobApplications = (state) => state.jobs.currentUserJobApplications;
 export const selectBaseUrl = (state) => state.jobs.baseUrl;
+export const selectSelectedJobId = (state) => state.jobs.selectedJobId;
 
 export default jobSlice.reducer;

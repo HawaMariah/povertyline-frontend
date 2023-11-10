@@ -1,10 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSelectedJobId } from "../features/job/jobSlice";
 
 function Card({ job, onButtonClick }) {
+  const dispatch = useDispatch()
+
   function detailsHandle(id) {
     // console.log(id);
     onButtonClick(id);
+    console.log(id)
+
+    dispatch(setSelectedJobId(id))
   }
   return (
     <div className="max-w-3xl mx-auto" id="card-dv">

@@ -15,35 +15,12 @@ const jobSchema = yup.object().shape({
   type: yup.string().min(5).required("type is required"),
 });
 
+export default function NewJob() {
 
-// import { dataContext } from "../../data/DataContextProvider";
-export default function NewJob({ PostFormObjectToServer }) {
-  // const themeFromApp = useContext(dataContext);
-  // const [FormObject, setFormObject] = useState({
-  //   title: "",
-  //   salary: "",
-  //   location: "",
-  //   company: "",
-  //   description: "",
-  //   type: "",
-  //   experience: "",
-  //   posted: "",
-  //   skills: "",
-  //   details: "",
-  // });
 
   const dispatch = useDispatch()
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
   const baseUrl = useSelector(state => state.jobs.baseUrl)
-
-  function FornObjectCreator(e) {
-    const { name, value } = e.target;
-
-    setFormObject((prevState) => {
-      return { ...prevState, [name]: value };
-    });
-  }
-
 
   const {
     values,

@@ -9,7 +9,6 @@ import Apply from "./Apply";
 function JobDetails({
   jobData,
   jobId,
-  PostFormObjectToApplicantServer,
 }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isShowMore, setIsShowMore] = useState(true);

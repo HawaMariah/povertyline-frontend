@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function ApplyForm() {
+  const selectedJobId = useSelector(state => state.jobs.selectedJobId)
   const baseUrl = useSelector(state => state.jobs.baseUrl)
   const navigate = useNavigate()
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
@@ -61,20 +62,10 @@ function ApplyForm() {
   });
 
   const saveJob = async () => {
-    return axios.post(`${baseUrl}/employees/apply/2`, {
-      "name": "BENNY VILLA",
-      "date_of_birth": "1990-01-01",
-      "nationality": "US",
-      "city": "New York",
-      "user_email": "bennyhouse11@gmail.com",
-      "mobile": "+1 555-1234",
-      "role": "Software Engineer",
-      "work_duration": "Full-time",
-      "work_locati  on": "Remote",
-      "work_description": "Experienced software engineer with a focus on web development.",
-      "school": "University of XYZ",
-      "major": "Computer Science",
-      "year_completed": 2015
+    return axios.post(`${baseUrl}/employees/apply/${selectedJobId}`, { 
+        ...FormObject, 
+        emloyee_id: loggedInUser.id, 
+        job_id: selectedJobId
     }, {
       headers: {
         Authorization: `Bearer ${loggedInUser.access_token}`
