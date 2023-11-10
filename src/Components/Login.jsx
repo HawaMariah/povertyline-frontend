@@ -28,6 +28,8 @@ function LogIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
+  const baseUrl = useSelector(state => state.jobs.baseUrl)
+
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
 
   useEffect(() => {
@@ -46,11 +48,11 @@ function LogIn() {
     console.log(usertype);
 
     const fetchUser =  async (email) => {
-      return await fetch(`https://skillhunter-sj7f.onrender.com//employees/search?email=${email}`)
+      return await fetch(`${baseUrl}/employees/search?email=${email}`)
     }
 
     try {
-      const response = await axios.post(`https://skillhunter-sj7f.onrender.com/${usertype}s/login`, {
+      const response = await axios.post(`${baseUrl}/${usertype}s/login`, {
         email: values.email,
         password: values.password,
       })

@@ -66,10 +66,6 @@ function ApplyForm() {
         ...FormObject, 
         emloyee_id: loggedInUser.id, 
         job_id: selectedJobId
-    }, {
-      headers: {
-        Authorization: `Bearer ${loggedInUser.access_token}`
-      }
     })
   }
   

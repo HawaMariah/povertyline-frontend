@@ -22,27 +22,7 @@ export default function NewJob() {
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
   const baseUrl = useSelector(state => state.jobs.baseUrl)
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: {
-      title: "",
-      description: "",
-      salary: "",
-      location: "",
-      type: "",
-    },
-    validationSchema: jobSchema,
-    onSubmit,
-  });
-
-  async function onSubmit(e) {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const newJobDetials = {
@@ -66,6 +46,28 @@ export default function NewJob() {
 
     console.log(response)
   }
+
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      salary: "",
+      location: "",
+      type: "",
+    },
+    validationSchema: jobSchema,
+    onSubmit,
+  });
+
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 mt-4">
 

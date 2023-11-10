@@ -8,9 +8,10 @@ import AdminLoadDetailOnInitialRender from "./AdminLoadDetailOnInitialRender";
 import Styles from "./Admin-Styles/Styles.css";
 import { tab } from "@material-tailwind/react";
 import ApplicantsTable from "../Applicants/ApplicantsTable";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoading, setJobData } from "../../features/job/jobSlice";
 
-function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
+function Admin({ PostFormObjectToServer, deleteFromServer }) {
   const [adminJobs, setAdminJobs] = useState([]);
   const [show, setShow] = useState(false);
   const [showRenderOnLoad, setShowRenderOnLoad] = useState(false);
@@ -24,12 +25,15 @@ function Admin({ jobs, PostFormObjectToServer, deleteFromServer }) {
   const loggedInUser = useSelector(state => state.jobs.loggedInUser)
   const navigate = useNavigate()
 
+  const dispatch = useDispatch()
+
   const baseUrl = useSelector(state => state.jobs.baseUrl)
+  let jobs = useSelector(state => state.jobs.jobData)
 
   useEffect(() => {
-    setAdminJobs(jobs);
+    // setAdminJobs(jobs);
 
-    if (jobData.length === 0) {
+    if (jobs.length === 0) {
       fetch(`${baseUrl}/jobs`)
       .then((res) => res.json())
       .then((data) => dispatch(setJobData(data.jobs)))
