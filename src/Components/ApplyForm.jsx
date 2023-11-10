@@ -17,7 +17,7 @@ function ApplyForm() {
   const form = useRef();
   const sendEmail = () => { 
     const serviceId = "service_o77mhct"
-    const templateId = "template_u70t73l"
+    const templateId = "template_h28a5h8"
 
     emailjs
       .sendForm(
@@ -42,18 +42,28 @@ function ApplyForm() {
 
   const [closeForm, setCloseForm] = useState(true);
   const [FormObject, setFormObject] = useState({
-    name: "",
-    CV: "",
-    email: "",
+    "name": "",
+    "date_of_birth": "",
+    "nationality": "",
+    "city": "",
+    "email": "",
+    "mobile": "",
+    "role": "",
+    "work_duration": "",
+    "work_location": "",
+    "work_description": "",
+    "school": "",
+    "major": "",
+    "year_completed": 1
   });
 
   const saveJob = async () => {
     return axios.post("https://gighunter-l0tq.onrender.com/employees/apply/1", {
-      "name": "John Doe",
+      "name": "BENNY VILLA",
       "date_of_birth": "1990-01-01",
       "nationality": "US",
       "city": "New York",
-      "email": "john.doe@example.com",
+      "user_email": "bennyhouse11@gmail.com",
       "mobile": "+1 555-1234",
       "role": "Software Engineer",
       "work_duration": "Full-time",
@@ -84,17 +94,28 @@ function ApplyForm() {
     console.log(loggedInUser)
     console.log(FormObject);
     // postToApplicantServer(FormObject);
-    setFormObject({
-      name: "",
-      CV: "",
-      email: "",
-    });
 
     const response = await saveJob()
     console.log(response)
 
     sendEmail();
     toastSuccessfullyApplied();
+
+
+    setFormObject({
+      "date_of_birth": "",
+      "nationality": "",
+      "city": "",
+      "user_email": "",
+      "mobile": "",
+      "role": "",
+      "work_duration": "",
+      "work_location": "",
+      "work_description": "",
+      "school": "",
+      "major": "",
+      "year_completed": 1
+    });
 
   }
 
@@ -130,23 +151,23 @@ function ApplyForm() {
                   name="name"
                   value={FormObject.name}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="James Paul"
                 />
 
                 <label
-                  for="email"
+                  for="user_email"
                   className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
                 >
                   Email Address
                 </label>
                 <input
-                  id="email"
-                  name="email"
-                  value={FormObject.email}
+                  id="user_email"
+                  name="user_email"
+                  value={FormObject.user_email}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="johndoe@gmail.com"
                 />
@@ -164,7 +185,7 @@ function ApplyForm() {
                   name="date"
                   value={FormObject.date}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="johndoe@gmail.com"
                 />
@@ -182,7 +203,7 @@ function ApplyForm() {
                   name="nationality"
                   value={FormObject.nationality}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Kenya"
                 />
@@ -200,7 +221,7 @@ function ApplyForm() {
                   name="city"
                   value={FormObject.city}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Nairobi"
                 />
@@ -218,7 +239,7 @@ function ApplyForm() {
                   name="mobile"
                   value={FormObject.mobile}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="+1 555-1234"
                 />
@@ -236,7 +257,7 @@ function ApplyForm() {
                   name="role"
                   value={FormObject.role}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Software engineer"
                 />
@@ -254,7 +275,7 @@ function ApplyForm() {
                   name="work_duration"
                   value={FormObject.work_duration}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Full time"
                 />
@@ -272,7 +293,7 @@ function ApplyForm() {
                   name="work_location"
                   value={FormObject.work_location}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Remote"
                 />
@@ -291,7 +312,7 @@ function ApplyForm() {
                   name="work_description"
                   value={FormObject.work_description}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder=""
                 />
@@ -309,7 +330,7 @@ function ApplyForm() {
                   name="school"
                   value={FormObject.school}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="University of XYZ"
                 />
@@ -327,7 +348,7 @@ function ApplyForm() {
                   name="major"
                   value={FormObject.major}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="Computer Science"
                 />
@@ -345,7 +366,7 @@ function ApplyForm() {
                   name="year_completed"
                   value={FormObject.year_completed}
                   onChange={FornObjectCreator}
-                  required
+                  // required
                   className="mb-2 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                   placeholder="2015"
                 />
